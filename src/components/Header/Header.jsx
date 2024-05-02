@@ -1,11 +1,62 @@
 import React from "react";
+import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 
 const Header = () => {
   return (
-    <div>
+    <header className="header">
       <Navigation />
-    </div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div>hi</div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </header>
   );
 };
 

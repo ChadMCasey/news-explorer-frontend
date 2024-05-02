@@ -1,13 +1,12 @@
 .nav {
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
 }
 
 .nav__list {
   list-style-type: none;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,12 +16,42 @@
   width: calc(100% - 208px);
 }
 
-.nav__link {
-  text-decoration: none;
-  color: white;
+.nav__li {
+  display: flex;
+  place-items: center;
 }
 
-.nav__signin {
+.nav__link {
+  height: 80px;
+  box-sizing: border-box;
+
+  display: flex;
+  place-items: center;
+  place-content: center;
+
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto";
+  font-weight: 500;
+}
+
+.bottom {
+  border-bottom: 5px solid red;
+}
+
+.nav__link_type_logo {
+  font-size: 20px;
+  font-family: "Roboto Slab";
+  font-weight: 700;
+}
+
+.nav__link_type_home {
+  margin-right: 42px;
+}
+
+.nav__link_type_signin {
+  width: 176px;
+  height: 40px;
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 100px;
