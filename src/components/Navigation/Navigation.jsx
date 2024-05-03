@@ -5,8 +5,13 @@ import "./Navigation.css";
 const Navigation = () => {
   const customStyle = ({ isActive }) => {
     if (isActive) {
+      // we can add the bottom border to the link tag (when active)
+      // but also ensure that the link tag text doesnt shift up by
+      // three pixels (from the border) with the following logic.
       return {
         borderBottom: "3px solid #fff",
+        paddingBottom: 27,
+        placeContent: "end",
       };
     }
   };

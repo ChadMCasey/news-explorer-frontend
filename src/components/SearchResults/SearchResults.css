@@ -1,4 +1,4 @@
-.search-results {
+.results {
   background-color: rgba(0, 0, 0, 0.192);
   color: white;
   place-content: center;
@@ -6,6 +6,6 @@
   height: 50px;
 }
 
-.search-results__content {
+.results__content {
   max-width: 1440px;
 }

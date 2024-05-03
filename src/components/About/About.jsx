@@ -1,5 +1,5 @@
 import React from "react";
-import UserAboutImage from "../../assets/userAboutImage.png";
+import UserAboutImage from "../../assets/portrait.jpeg";
 import "./About.css";
 
 const About = () => {
@@ -15,13 +15,26 @@ const About = () => {
           <h2 className="about__heading">About The author</h2>
           <div className="about__description-area">
             <p className="about__paragraph">
-              This block describes the project author. Here you should indicate
-              your name, what you do, and which development technologies you
-              know.
+              Chad Casey is a Full Stack Developer and UI Designer from
+              Michigan. Currently he works as a Data Analyst, driving insights
+              for his organization through the application of tools such as SQL
+              & Python. The technologies he knows include Python, JS, Java,
+              React, Node, Express, SQL, MongoDB, HTML, CSS & ChartsJS.
             </p>
             <p className="about__paragraph">
-              You can also talk about your experience with TripleTen, what you
-              learned there, and how you can help potential customers.
+              His learning journey began with a introduction to algorithmic
+              thinking and programming course at MSU. Since then, he has drawn
+              on numerous resources to continue his studies. This includes OOP &
+              DSA courses with Georgia Tech on MIT's edX platform, the 700+ hour
+              Full Stack bootcamp with Triple10, numerous programming books,
+              personal projects and more.
+            </p>
+            <p className="about__paragraph">
+              For Chad, becoming a Software Engineer means embarking on a career
+              that is in alignment with his passions & grants him the
+              opportunity explore his creativity. This allows him to both feel
+              connected to his work & provide quality solutions to the clients
+              he serves.
             </p>
           </div>
         </div>

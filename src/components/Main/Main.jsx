@@ -1,14 +1,10 @@
 import React from "react";
 import About from "../About/About";
 import SearchResults from "../SearchResults/SearchResults";
+import Header from "../Header/Header";
 
-const Main = () => {
-  return (
-    <main className="main">
-      <SearchResults />
-      <About />
-    </main>
-  );
+const Main = ({ children }) => {
+  return <main className="main">{children}</main>;
 };
 
 export default Main;

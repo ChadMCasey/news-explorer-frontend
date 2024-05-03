@@ -6,6 +6,7 @@
 .about__content {
   max-width: calc(1440px - 208px);
   margin: auto;
+  padding: 0px 104px;
 
   display: flex;
   column-gap: 56px;
@@ -14,6 +15,7 @@
 .about__image {
   height: 464px;
   width: 464px;
+  border-radius: 50%;
 }
 
 .about__text-area {

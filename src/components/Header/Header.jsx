@@ -3,11 +3,11 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import Hero from "../Hero/Hero";
 
-const Header = () => {
+const Header = ({ children }) => {
   return (
     <header className="header">
       <Navigation />
-      <Hero />
+      {children}
     </header>
   );
 };

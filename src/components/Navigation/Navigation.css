@@ -12,7 +12,7 @@
   align-items: center;
 
   margin: 0px;
-  padding: 0px;
+  padding: 0px 104px;
   width: calc(1440px - 208px);
 }
 
@@ -22,11 +22,9 @@
 }
 
 .nav__link {
-  height: 80px;
   box-sizing: border-box;
+  height: 80px;
 
-  display: flex;
-  place-items: center;
   place-content: center;
 
   text-decoration: none;

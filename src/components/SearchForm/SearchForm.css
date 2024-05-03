@@ -15,6 +15,10 @@
   font-size: 16px;
 }
 
+.search-form__input:focus {
+  outline: none;
+}
+
 .search-form__input::placeholder {
   color: #b6bcbf;
 }

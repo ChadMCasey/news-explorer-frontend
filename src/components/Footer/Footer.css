@@ -6,6 +6,7 @@
 
 .footer__content {
   margin: auto;
+  padding: 0px 104px;
   max-width: calc(1440px - 208px);
   display: flex;
   justify-content: space-between;
