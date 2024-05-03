@@ -1,0 +1,46 @@
+.footer {
+  height: 80px;
+  place-content: center;
+  font-family: "Roboto";
+}
+
+.footer__content {
+  margin: auto;
+  max-width: calc(1440px - 208px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__copywright {
+  margin: 0px;
+  font-size: 16px;
+  color: #b6bcbf;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+}
+
+.footer__link {
+  margin-left: 40px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+.footer__link_github {
+  display: inline-block;
+  background-image: url("../../assets/github.svg");
+  height: 24px;
+  width: 24px;
+}
+
+.footer__link_facebook {
+  display: inline-block;
+  margin-left: 24px;
+  background-image: url("../../assets/facebook.svg");
+  height: 24px;
+  width: 24px;
+}

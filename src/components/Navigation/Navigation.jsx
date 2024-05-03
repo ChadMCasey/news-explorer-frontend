@@ -4,9 +4,11 @@ import "./Navigation.css";
 
 const Navigation = () => {
   const customStyle = ({ isActive }) => {
-    return {
-      borderBottom: "3px solid #fff",
-    };
+    if (isActive) {
+      return {
+        borderBottom: "3px solid #fff",
+      };
+    }
   };
 
   return (
@@ -22,7 +24,7 @@ const Navigation = () => {
           <NavLink
             to="/"
             style={customStyle}
-            className={`nav__link nav__link_type_home`}
+            className="nav__link nav__link_type_home"
           >
             Home
           </NavLink>

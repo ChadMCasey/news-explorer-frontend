@@ -1,0 +1,35 @@
+.search-form {
+  display: flex;
+  height: 64px;
+  position: relative;
+}
+
+.search-form__input {
+  border: none;
+  border-radius: 100px;
+  padding: 21px 24px;
+
+  width: 100%;
+
+  font-family: "Roboto";
+  font-size: 16px;
+}
+
+.search-form__input::placeholder {
+  color: #b6bcbf;
+}
+
+.search-form__submit {
+  width: 168px;
+  height: 64px;
+
+  position: absolute;
+  right: 0;
+
+  border: none;
+  border-radius: 100px;
+  background-color: #2f71e5;
+  color: white;
+
+  font-size: 18px;
+}

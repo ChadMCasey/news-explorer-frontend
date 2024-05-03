@@ -1,12 +1,13 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import About from "../About/About";
+import SearchResults from "../SearchResults/SearchResults";
 
 const Main = () => {
   return (
-    <div>
-      {/* <p>Main</p> */}
-      <Outlet />
-    </div>
+    <main className="main">
+      <SearchResults />
+      <About />
+    </main>
   );
 };
 

@@ -1,0 +1,22 @@
+.hero {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin: auto;
+  max-width: 608px;
+  color: white;
+}
+
+.hero__heading {
+  margin-top: 0px;
+  margin-bottom: 32px;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 60px;
+}
+
+.hero__subheading {
+  margin-top: 0px;
+  margin-bottom: 88px;
+  font-family: "Roboto";
+  font-size: 18px;
+}

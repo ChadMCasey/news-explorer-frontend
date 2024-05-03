@@ -1,0 +1,11 @@
+.search-results {
+  background-color: rgba(0, 0, 0, 0.192);
+  color: white;
+  place-content: center;
+  text-align: center;
+  height: 50px;
+}
+
+.search-results__content {
+  max-width: 1440px;
+}

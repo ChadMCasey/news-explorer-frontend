@@ -1,0 +1,38 @@
+.about {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.about__content {
+  max-width: calc(1440px - 208px);
+  margin: auto;
+
+  display: flex;
+  column-gap: 56px;
+}
+
+.about__image {
+  height: 464px;
+  width: 464px;
+}
+
+.about__text-area {
+  max-width: 600px;
+}
+
+.about__heading {
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 40px;
+
+  margin-top: 51px;
+  margin-bottom: 21px;
+}
+
+.about__paragraph {
+  margin-top: 0px;
+  margin-bottom: 21px;
+
+  font-family: "Roboto";
+  font-size: 18px;
+}

@@ -8,6 +8,7 @@ import "./App.css";
 // components
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

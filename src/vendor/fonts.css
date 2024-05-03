@@ -10,7 +10,7 @@
   font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/roboto-slab-700.woff2") format("woff2"),
+  src: url("./fonts/roboto-slab-400-regular.woff2") format("woff2"),
     url("./fonts/roboto-slab-400-regular.woff") format("woff");
 }
 
