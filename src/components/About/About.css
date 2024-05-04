@@ -20,6 +20,9 @@
 
 .about__text-area {
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about__heading {
@@ -27,7 +30,7 @@
   font-weight: 400;
   font-size: 40px;
 
-  margin-top: 51px;
+  margin-top: 0;
   margin-bottom: 21px;
 }
 
@@ -37,4 +40,6 @@
 
   font-family: "Roboto";
   font-size: 18px;
+
+  line-height: calc(24 / 18);
 }

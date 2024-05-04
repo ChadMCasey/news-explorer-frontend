@@ -1,11 +1,15 @@
 import React from "react";
+import "./NewsCardList.css";
 
 const NewsCardList = () => {
   return (
-    <div>
-      the component that controls the rendering of cards on pages and their
-      amount
-    </div>
+    <ul className="cards-list">
+      <li className="cards-list__item">Hello</li>
+      <li className="cards-list__item">Hello</li>
+      <li className="cards-list__item">Hello</li>
+      <li className="cards-list__item">Hello</li>
+      <li className="cards-list__item">Hello</li>
+    </ul>
   );
 };
 

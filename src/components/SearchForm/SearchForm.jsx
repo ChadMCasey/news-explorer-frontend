@@ -20,7 +20,7 @@ const SearchForm = () => {
         name="topic"
         placeholder="Enter Topic"
         className="search-form__input"
-        value={values.topic}
+        value={values.topic || ""}
         onChange={handleChange}
       />
       <button type="submit" className="search-form__submit">

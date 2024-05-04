@@ -7,9 +7,9 @@ const SearchResults = () => {
   return (
     <section className="results">
       <div className="results__content">
-        {/* headings of some sort */}
+        <h3 className="results__header">Search Results</h3>
         <NewsCardList />
-        {/* other content of some sort */}
+        <button className="results__more">Show more</button>
       </div>
     </section>
   );

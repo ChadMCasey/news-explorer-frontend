@@ -1,4 +1,5 @@
 .header {
   background-image: url("../../assets/headerBackgroundImageMin.png");
+  background-position: center;
   background-size: cover;
 }
