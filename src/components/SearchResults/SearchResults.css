@@ -37,3 +37,19 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+@media screen and (width <= 920px) {
+  .results {
+    padding: 40px 0px;
+  }
+
+  .results__content {
+    width: calc(100% - 80px);
+  }
+}
+
+@media screen and (width <= 480px) {
+  .results__content {
+    width: calc(100% - 32px);
+  }
+}

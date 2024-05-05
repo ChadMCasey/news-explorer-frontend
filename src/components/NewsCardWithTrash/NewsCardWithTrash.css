@@ -1,0 +1,12 @@
+.trash {
+  background: center no-repeat url("../../assets/trash.svg");
+  border: none;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: background-image 0.2s ease-in-out;
+}

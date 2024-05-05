@@ -1,14 +1,17 @@
 import React from "react";
+
 import "./NewsCardList.css";
+import NewsCard from "../NewsCard/NewsCard.jsx";
+import NewsCardWithBookmark from "../NewsCardWithBookmark/NewsCardWithBookmark.jsx";
+import NewsCardWithTrash from "../NewsCardWithTrash/NewsCardWithTrash.jsx";
+import { placeholderCards } from "../../utils/constants.js";
 
 const NewsCardList = () => {
   return (
-    <ul className="cards-list">
-      <li className="cards-list__item">Hello</li>
-      <li className="cards-list__item">Hello</li>
-      <li className="cards-list__item">Hello</li>
-      <li className="cards-list__item">Hello</li>
-      <li className="cards-list__item">Hello</li>
+    <ul className="cards">
+      {placeholderCards.map((card, i) => (
+        <NewsCardWithTrash key={i} card={card} />
+      ))}
     </ul>
   );
 };

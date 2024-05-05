@@ -1,0 +1,47 @@
+.bookmark {
+  background: center no-repeat url("../../assets/bookmark-normal.svg");
+  border: none;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: background-image 0.2s ease-in-out;
+}
+
+.bookmark-prompt {
+  margin: 0px;
+  visibility: none;
+  opacity: 0;
+  position: absolute;
+  height: 40px;
+  right: 69px;
+  top: 24px;
+  text-align: center;
+  place-content: center;
+  margin: 0px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: "Roboto";
+  font-weight: 500;
+  width: 182px;
+  color: #1a1b22;
+  transition: all 0.2s ease-in-out;
+}
+
+.bookmark:hover {
+  background-image: url("../../assets/bookmark-hover.svg");
+}
+
+.bookmark:hover + .bookmark-prompt {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.bookmark:active {
+  background-image: center no-repeat url("../../assets/bookmark-marked.svg");
+}
