@@ -1,11 +1,18 @@
 import React from "react";
 
+import "./NewsCardList.css";
+import NewsCard from "../NewsCard/NewsCard.jsx";
+import NewsCardWithBookmark from "../NewsCardWithBookmark/NewsCardWithBookmark.jsx";
+import NewsCardWithTrash from "../NewsCardWithTrash/NewsCardWithTrash.jsx";
+import { placeholderCards } from "../../utils/constants.js";
+
 const NewsCardList = () => {
   return (
-    <div>
-      the component that controls the rendering of cards on pages and their
-      amount
-    </div>
+    <ul className="cards">
+      {placeholderCards.map((card, i) => (
+        <NewsCardWithBookmark key={i} card={card} />
+      ))}
+    </ul>
   );
 };
 

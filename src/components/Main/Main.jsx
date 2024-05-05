@@ -1,13 +1,10 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import About from "../About/About";
+import SearchResults from "../SearchResults/SearchResults";
+import Header from "../Header/Header";
 
-const Main = () => {
-  return (
-    <div>
-      {/* <p>Main</p> */}
-      <Outlet />
-    </div>
-  );
+const Main = ({ children }) => {
+  return <main className="main">{children}</main>;
 };
 
 export default Main;

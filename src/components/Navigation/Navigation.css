@@ -1,28 +1,59 @@
 .nav {
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+.nav__li {
+  display: flex;
+  align-items: center;
 }
 
 .nav__list {
   list-style-type: none;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   margin: 0px;
-  padding: 0px;
-  width: calc(100% - 208px);
+  padding: 0px 104px;
+  width: calc(1440px - 208px);
 }
 
 .nav__link {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 80px;
+
   text-decoration: none;
+
   color: white;
+  font-size: 18px;
+  font-family: "Roboto";
+  font-weight: 400;
 }
 
-.nav__signin {
+.bottom {
+  border-bottom: 5px solid red;
+}
+
+.nav__link_type_logo {
+  font-size: 20px;
+  font-family: "Roboto Slab";
+  place-content: center;
+  font-weight: 700;
+}
+
+.nav__link_type_home {
+  margin-right: 42px;
+  padding-top: 30px;
+  place-self: end;
+}
+
+.nav__link_type_signin {
+  width: 176px;
+  height: 48px;
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 100px;

@@ -1,8 +1,9 @@
+@import url("./vendor/fonts.css");
+
 .body {
   margin: 0;
 }
 
 .page {
-  max-width: 1440px;
   margin: auto;
 }

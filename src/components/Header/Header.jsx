@@ -1,11 +1,14 @@
 import React from "react";
+import "./Header.css";
 import Navigation from "../Navigation/Navigation";
+import Hero from "../Hero/Hero";
 
-const Header = () => {
+const Header = ({ children }) => {
   return (
-    <div>
+    <header className="header">
       <Navigation />
-    </div>
+      {children}
+    </header>
   );
 };
 
