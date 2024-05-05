@@ -11,6 +11,15 @@
   transition: background-image 0.2s ease-in-out;
 }
 
+.bookmark_marked {
+  background: center no-repeat url("../../assets/bookmark-marked.svg");
+  background-color: #fff;
+}
+
+.bookmark_hovered {
+  background-image: url("../../assets/bookmark-hover.svg");
+}
+
 .bookmark-prompt {
   margin: 0px;
   visibility: none;
@@ -32,16 +41,25 @@
   transition: all 0.2s ease-in-out;
 }
 
-.bookmark:hover {
-  background-image: url("../../assets/bookmark-hover.svg");
+.bookmark:active {
+  background-image: center no-repeat url("../../assets/bookmark-marked.svg");
 }
 
-.bookmark:hover + .bookmark-prompt {
-  display: block;
+.bookmark-prompt.active {
   opacity: 1;
   visibility: visible;
 }
 
-.bookmark:active {
-  background-image: center no-repeat url("../../assets/bookmark-marked.svg");
+@media screen and (width <= 920px) {
+  .bookmark {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .bookmark {
+    top: 16px;
+    right: 16px;
+  }
 }

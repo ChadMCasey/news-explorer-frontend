@@ -10,7 +10,7 @@ const NewsCardList = () => {
   return (
     <ul className="cards">
       {placeholderCards.map((card, i) => (
-        <NewsCardWithTrash key={i} card={card} />
+        <NewsCardWithBookmark key={i} card={card} />
       ))}
     </ul>
   );

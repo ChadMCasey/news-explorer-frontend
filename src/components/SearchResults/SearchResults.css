@@ -31,11 +31,17 @@
   border: none;
   border-radius: 80px;
 
-  background-color: #e8e8e8;
+  background-color: #fff;
 
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 500;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.results__more:hover {
+  background-color: #e8e8e8;
 }
 
 @media screen and (width <= 920px) {

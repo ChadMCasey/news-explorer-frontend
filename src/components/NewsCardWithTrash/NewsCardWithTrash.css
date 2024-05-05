@@ -10,3 +10,7 @@
   background-color: #fff;
   transition: background-image 0.2s ease-in-out;
 }
+
+.trash:hover {
+  background-image: url("../../assets/trash-hover.svg");
+}

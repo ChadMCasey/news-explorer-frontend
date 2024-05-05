@@ -5,6 +5,11 @@
   border-bottom: 1px solid rgba(196, 196, 196, 0.3);
 }
 
+.nav__li {
+  display: flex;
+  align-items: center;
+}
+
 .nav__list {
   list-style-type: none;
   display: flex;
@@ -16,21 +21,17 @@
   width: calc(1440px - 208px);
 }
 
-.nav__li {
-  display: flex;
-  place-items: center;
-}
-
 .nav__link {
+  display: inline-block;
   box-sizing: border-box;
   height: 80px;
 
-  place-content: center;
-
   text-decoration: none;
+
   color: white;
+  font-size: 18px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .bottom {
@@ -40,11 +41,14 @@
 .nav__link_type_logo {
   font-size: 20px;
   font-family: "Roboto Slab";
+  place-content: center;
   font-weight: 700;
 }
 
 .nav__link_type_home {
   margin-right: 42px;
+  padding-top: 30px;
+  place-self: end;
 }
 
 .nav__link_type_signin {

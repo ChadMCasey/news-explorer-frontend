@@ -37,4 +37,14 @@
   color: white;
 
   font-size: 18px;
+
+  transition: background-color 0.2s ease-out;
+}
+
+.search-form__submit:hover {
+  background-color: #347eff;
+}
+
+.search-form__submit:active {
+  background-color: #2a65cc;
 }

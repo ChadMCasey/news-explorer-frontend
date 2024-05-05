@@ -1,5 +1,7 @@
 const placeholderCards = [
   {
+    id: 1,
+    isBookMarked: false,
     date: "November 4, 2020",
     title: "Everyone Needs a Special 'Sit Spot' in Nature",
     description: `Ever since I read Richard Louv's influential book,
@@ -15,6 +17,8 @@ const placeholderCards = [
     ).href,
   },
   {
+    id: 2,
+    isBookMarked: false,
     date: "February 19, 2019",
     title: "Nature makes you better",
     description: `We all know how good nature can make us feel.
@@ -29,6 +33,8 @@ const placeholderCards = [
     ).href,
   },
   {
+    id: 3,
+    isBookMarked: false,
     date: "October 19, 2020",
     title: "Grand Teton Renews Historic Crest Trail",
     description: `The linking together of the Cascade and Death
@@ -44,4 +50,7 @@ const placeholderCards = [
   },
 ];
 
-export { placeholderCards };
+const bookmarked = new URL("../assets/bookmark-marked.svg", import.meta.url)
+  .href;
+
+export { placeholderCards, bookmarked };
