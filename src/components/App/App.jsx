@@ -21,8 +21,16 @@ import { IsLoggedInContext } from "../../context/IsLoggedInContext";
 import { placeholderCards } from "../../utils/constants";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSearchResultLoading, setIsSearchResultLoading] = useState(false);
+  const [userInputtedSearch, setUserInputtedSearch] = useState("");
   const [userData, setUserData] = useState({});
+
+  function handleUserSearch(topic) {
+    setUserInputtedSearch(topic);
+    setIsSearchResultLoading(true);
+    setTimeout(() => setIsSearchResultLoading(false), 1000);
+  }
 
   return (
     <div className="page">
@@ -33,10 +41,13 @@ function App() {
             element={
               <>
                 <Header>
-                  <Hero />
+                  <Hero handleUserSearch={handleUserSearch} />
                 </Header>
                 <Main>
-                  <SearchResults />
+                  <SearchResults
+                    isSearchResultLoading={isSearchResultLoading}
+                    userInputtedSearch={userInputtedSearch}
+                  />
                   <About />
                 </Main>
               </>

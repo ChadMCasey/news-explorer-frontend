@@ -9,9 +9,9 @@ import { placeholderCards } from "../../utils/constants.js";
 const NewsCardList = () => {
   return (
     <ul className="cards">
-      {placeholderCards.map((card, i) => (
-        <NewsCardWithBookmark key={i} card={card} />
-      ))}
+      {placeholderCards.map((card, i) => {
+        return <NewsCardWithBookmark key={i} card={card} />;
+      })}
     </ul>
   );
 };

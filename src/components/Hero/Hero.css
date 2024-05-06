@@ -1,6 +1,9 @@
 .hero {
   padding-top: 80px;
   padding-bottom: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+
   margin: auto;
   max-width: 608px;
   color: white;
@@ -19,4 +22,16 @@
   margin-bottom: 88px;
   font-family: "Roboto";
   font-size: 18px;
+}
+
+@media screen and (width <= 920px) {
+  .hero {
+    max-width: 448px;
+  }
+  .hero__heading {
+    font-size: 36px;
+  }
+  .hero__subheading {
+    margin-bottom: 48px;
+  }
 }

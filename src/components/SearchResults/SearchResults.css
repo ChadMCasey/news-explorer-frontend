@@ -44,6 +44,14 @@
   background-color: #e8e8e8;
 }
 
+.result__searching {
+  color: #b6bcbf;
+  font-size: 18px;
+  font-family: "Roboto";
+  margin: 0px;
+  margin-top: 24px;
+}
+
 @media screen and (width <= 920px) {
   .results {
     padding: 40px 0px;

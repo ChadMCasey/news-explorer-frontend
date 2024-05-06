@@ -7,7 +7,6 @@
 .footer__content {
   margin: auto;
   padding: 0px 104px;
-  max-width: calc(1440px - 208px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,4 +43,10 @@
   background-image: url("../../assets/facebook.svg");
   height: 24px;
   width: 24px;
+}
+
+@media screen and (width <= 920px) {
+  .footer__content {
+    padding: 0px 40px;
+  }
 }

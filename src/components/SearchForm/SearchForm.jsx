@@ -2,7 +2,9 @@ import React from "react";
 import "./SearchForm.css";
 import useFormAndValidation from "../../hooks/useFormAndValidation";
 
-const SearchForm = () => {
+const SearchForm = (props) => {
+  const { handleUserSearch } = props;
+
   const {
     values,
     errors,
@@ -13,8 +15,17 @@ const SearchForm = () => {
     setIsValid,
   } = useFormAndValidation();
 
+  function handleSearchSubmission(e) {
+    if (values.topic) {
+      handleUserSearch(values.topic);
+    }
+
+    e.preventDefault();
+    resetForm();
+  }
+
   return (
-    <form className="search-form">
+    <form className="search-form" onSubmit={handleSearchSubmission}>
       <input
         type="text"
         name="topic"
