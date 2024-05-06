@@ -3,17 +3,19 @@ import React, { useEffect } from "react";
 import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
+import NothingFound from "../NothingFound/NothingFound";
 
 const SearchResults = (props) => {
-  const { isSearchResultLoading, userInputtedSearch } = props;
+  const { isSearchResultLoading, userInputtedSearch, searchResultData } = props;
+  const isNoSearchResult = Object.keys(searchResultData).length === 0; // empty search result object means no result
 
   // no user inputted search
   if (userInputtedSearch === "") {
     return;
   }
 
+  // loading
   if (isSearchResultLoading) {
-    // loading
     return (
       <section className="results">
         <div className="results__content">
@@ -28,9 +30,15 @@ const SearchResults = (props) => {
   return (
     <section className="results">
       <div className="results__content">
-        <h2 className="results__header">Search Results</h2>
-        <NewsCardList />
-        <button className="results__more">Show more</button>
+        {isNoSearchResult ? (
+          <NothingFound />
+        ) : (
+          <>
+            <h2 className="results__header">Search Results</h2>
+            <NewsCardList />
+            <button className="results__more">Show more</button>
+          </>
+        )}
       </div>
     </section>
   );

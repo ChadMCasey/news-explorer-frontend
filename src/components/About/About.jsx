@@ -20,7 +20,7 @@ const About = () => {
               Express, SQL, MongoDB, HTML & CSS.
             </p>
 
-            <p className="about__paragraph">
+            <p className="about__paragraph last">
               For Chad, becoming a Software Engineer means embarking on a career
               that is in alignment with his passions, allowing him to feel
               connected to his work & provide quality solutions to the clients

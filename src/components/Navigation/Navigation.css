@@ -18,7 +18,7 @@
 
   margin: 0px;
   padding: 0px 104px;
-  width: calc(1440px - 208px);
+  width: 100%;
 }
 
 .nav__link {

@@ -15,9 +15,11 @@
   width: 100%;
 
   box-shadow: 2px 2px 15px rgba(26, 27, 34, 0.15);
+  color: #1a1b22;
 
   font-family: "Roboto";
   font-size: 16px;
+  font-weight: 500;
 }
 
 .search-form__input:focus {
@@ -42,6 +44,7 @@
   color: white;
 
   font-size: 18px;
+  font-weight: 500;
 
   transition: background-color 0.2s ease-out;
 }
