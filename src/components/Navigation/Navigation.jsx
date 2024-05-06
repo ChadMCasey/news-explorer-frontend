@@ -20,7 +20,8 @@ const Navigation = () => {
           </NavLink>
         </li>
 
-        <li className="nav__li">
+        {/* >=  768px  */}
+        <li className="nav__li desktop">
           <NavLink
             style={style}
             to="/"
@@ -29,6 +30,14 @@ const Navigation = () => {
             Home
           </NavLink>
           <button className="nav__link nav__link_type_signin">Sign In</button>
+        </li>
+
+        {/* < 768px */}
+        <li className="nav__li mobile">
+          <div className="hamburger">
+            <div className="hamburger__bar"></div>
+            <div className="hamburger__bar"></div>
+          </div>
         </li>
       </ul>
     </nav>

@@ -1,11 +1,14 @@
 .search-form {
   display: flex;
-  height: 64px;
   position: relative;
 }
 
 .search-form__input {
   border: none;
+
+  height: 64px;
+  box-sizing: border-box;
+
   border-radius: 100px;
   padding: 21px 24px;
 
@@ -49,4 +52,20 @@
 
 .search-form__submit:active {
   background-color: #2a65cc;
+}
+
+@media screen and (width <= 480px) {
+  .search-form {
+    flex-direction: column;
+  }
+  .search-form__input {
+    height: 56px;
+    margin-bottom: 16px;
+  }
+
+  .search-form__submit {
+    width: 100%;
+    height: 56px;
+    position: static;
+  }
 }

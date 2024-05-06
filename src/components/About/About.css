@@ -4,7 +4,6 @@
 }
 
 .about__content {
-  /* max-width: calc(1440px - 208px); */
   margin: auto;
   padding: 0px 104px;
 
@@ -71,5 +70,16 @@
     flex-direction: column;
     align-items: center;
     row-gap: 24px;
+  }
+}
+
+@media screen and (width < 480px) {
+  .about {
+    padding-top: 32px;
+    padding-bottom: 128px;
+  }
+
+  .about__content {
+    padding: 0px 16px;
   }
 }

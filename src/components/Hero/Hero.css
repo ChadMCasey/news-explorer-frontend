@@ -1,8 +1,5 @@
 .hero {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 80px 40px;
 
   margin: auto;
   max-width: 608px;
@@ -27,11 +24,25 @@
 @media screen and (width <= 920px) {
   .hero {
     max-width: 448px;
+    padding: 38px 0px 48px 0px;
   }
   .hero__heading {
     font-size: 36px;
   }
   .hero__subheading {
     margin-bottom: 48px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .hero {
+    width: 448px;
+    max-width: calc(100% - 80px);
+  }
+}
+
+@media screen and (width <= 480px) {
+  .hero {
+    max-width: calc(100% - 32px);
   }
 }

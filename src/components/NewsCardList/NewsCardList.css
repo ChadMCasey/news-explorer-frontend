@@ -13,6 +13,7 @@
 @media screen and (width <= 920px) {
   .cards {
     gap: 8px;
+    padding-top: 32px;
   }
 }
 

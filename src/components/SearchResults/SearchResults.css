@@ -60,6 +60,10 @@
   .results__content {
     width: calc(100% - 80px);
   }
+
+  .results__header {
+    font-size: 30px;
+  }
 }
 
 @media screen and (width <= 480px) {
