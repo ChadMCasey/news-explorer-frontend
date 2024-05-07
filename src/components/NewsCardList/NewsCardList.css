@@ -23,3 +23,10 @@
     gap: 10px;
   }
 }
+
+@media screen and (width <= 480px) {
+  .cards {
+    padding-top: 58px;
+    padding-bottom: 16px;
+  }
+}

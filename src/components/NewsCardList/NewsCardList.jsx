@@ -4,12 +4,11 @@ import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import NewsCardWithBookmark from "../NewsCardWithBookmark/NewsCardWithBookmark.jsx";
 import NewsCardWithTrash from "../NewsCardWithTrash/NewsCardWithTrash.jsx";
-import { placeholderCards } from "../../utils/constants.js";
 
-const NewsCardList = () => {
+const NewsCardList = ({ displayedResults }) => {
   return (
     <ul className="cards">
-      {placeholderCards.map((card, i) => {
+      {displayedResults.map((card, i) => {
         return <NewsCardWithBookmark key={i} card={card} />;
       })}
     </ul>

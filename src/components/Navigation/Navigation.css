@@ -19,6 +19,7 @@
   margin: 0px;
   padding: 0px 104px;
   width: 100%;
+  max-width: 1440px;
 }
 
 .nav__link {
@@ -59,6 +60,13 @@
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 100px;
+  transition: all 0.25s ease-in-out;
+}
+
+.nav__link_type_signin:hover {
+  color: #1a1b22;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .mobile {

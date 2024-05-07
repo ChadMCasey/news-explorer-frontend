@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ModalStateContext } from "../../context/ModalStateContext";
 import "./Navigation.css";
 
 const Navigation = () => {
+  const { setActiveModal } = useContext(ModalStateContext);
+
   const style = ({ isActive }) => {
     if (isActive) {
       return {
@@ -11,6 +14,7 @@ const Navigation = () => {
       };
     }
   };
+
   return (
     <nav className="nav">
       <ul className="nav__list">
@@ -29,7 +33,12 @@ const Navigation = () => {
           >
             Home
           </NavLink>
-          <button className="nav__link nav__link_type_signin">Sign In</button>
+          <button
+            className="nav__link nav__link_type_signin"
+            onClick={() => setActiveModal("signin-modal")}
+          >
+            Sign In
+          </button>
         </li>
 
         {/* < 768px */}

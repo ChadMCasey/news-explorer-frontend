@@ -68,6 +68,10 @@
 }
 
 @media screen and (width <= 480px) {
+  .results {
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
   .results__content {
     width: calc(100% - 32px);
   }

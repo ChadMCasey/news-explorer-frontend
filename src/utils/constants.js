@@ -48,6 +48,36 @@ const placeholderCards = [
       import.meta.url
     ).href,
   },
+  {
+    id: 4,
+    isBookMarked: false,
+    date: "October 19, 2020",
+    title: "Nostalgic Photos of Tourists in U.S. National Parks",
+    description: `Uri Løvevild Golman and Helle Løvevild Golman are National Geographic 
+                  Explorers and conservation photographers who just completed a project 
+                  and book they call their love letter to...`,
+    source: "National Geographic",
+    alt: "Geyser",
+    image: new URL(
+      "../assets/placeholder/placeholder-card-image-3.png",
+      import.meta.url
+    ).href,
+  },
+  {
+    id: 5,
+    isBookMarked: false,
+    date: "March 16, 2020",
+    title: "Scientists Don't Know Why Polaris Is So Weird",
+    description: `Humans have long relied on the starry sky to push into new frontiers, 
+                  sail to the very edge of the world and find their way back home again. 
+                  Even animals look to the stars to guide them. `,
+    source: "treehugger",
+    alt: "night sky",
+    image: new URL(
+      "../assets/placeholder/placeholder-card-image-2.png",
+      import.meta.url
+    ).href,
+  },
 ];
 
 const bookmarked = new URL("../assets/bookmark-marked.svg", import.meta.url)

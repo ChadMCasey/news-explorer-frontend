@@ -9,6 +9,8 @@
 
   display: flex;
   column-gap: 56px;
+
+  max-width: 1440px;
 }
 
 .about__image {

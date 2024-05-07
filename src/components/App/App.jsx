@@ -1,5 +1,5 @@
 // external
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // css
@@ -13,6 +13,8 @@ import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
 import Hero from "../Hero/Hero";
 import SavedNews from "../SavedNews/SavedNews";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import SigninModal from "../SigninModal/SigninModal";
 
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
@@ -20,27 +22,40 @@ import { ModalStateContext } from "../../context/ModalStateContext";
 
 // constants
 import { placeholderCards } from "../../utils/constants";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function App() {
   const [userData, setUserData] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInputtedSearch, setUserInputtedSearch] = useState("");
   const [isSearchResultLoading, setIsSearchResultLoading] = useState(false);
-  const [searchResultData, setSearchResultData] = useState({});
+  const [searchResultData, setSearchResultData] = useState([]);
+  const [showMore, setShowMore] = useState(false);
   const [activeModal, setActiveModal] = useState("");
 
   function handleUserSearch(topic) {
     setUserInputtedSearch(topic);
     setIsSearchResultLoading(true);
-    setSearchResultData({ data: "dummy data" });
+    setSearchResultData(placeholderCards);
     setTimeout(() => setIsSearchResultLoading(false), 1000);
   }
+
+  function closeModal() {
+    setActiveModal("");
+  }
+
+  useEffect(() => {
+    if (activeModal === "") return;
+    const escModalClose = (e) => e.key == "Escape" && closeModal();
+    window.addEventListener("keydown", escModalClose);
+    return () => window.removeEventListener("keydown", escModalClose);
+  }, [activeModal]);
 
   return (
     <div className="page">
       <IsLoggedInContext.Provider value={isLoggedIn}>
-        <ModalStateContext.Provider value={{ activeModal, setActiveModal }}>
+        <ModalStateContext.Provider
+          value={{ activeModal, setActiveModal, closeModal }}
+        >
           <Routes>
             <Route
               path="/"
@@ -48,13 +63,14 @@ function App() {
                 <>
                   <Header>
                     <Hero handleUserSearch={handleUserSearch} />
-                    <ModalWithForm />
                   </Header>
                   <Main>
                     <SearchResults
                       isSearchResultLoading={isSearchResultLoading}
                       searchResultData={searchResultData}
                       userInputtedSearch={userInputtedSearch}
+                      setShowMore={setShowMore}
+                      showMore={showMore}
                     />
                     <About />
                   </Main>
@@ -64,6 +80,8 @@ function App() {
             <Route path="/saved-news" element={<SavedNews />} />
           </Routes>
           <Footer />
+
+          <SigninModal />
         </ModalStateContext.Provider>
       </IsLoggedInContext.Provider>
     </div>

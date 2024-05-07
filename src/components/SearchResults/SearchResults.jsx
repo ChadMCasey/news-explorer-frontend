@@ -5,9 +5,19 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
 
-const SearchResults = (props) => {
-  const { isSearchResultLoading, userInputtedSearch, searchResultData } = props;
+const SearchResults = ({
+  isSearchResultLoading,
+  userInputtedSearch,
+  searchResultData,
+  setShowMore,
+  showMore,
+}) => {
   const isNoSearchResult = Object.keys(searchResultData).length === 0; // empty search result object means no result
+  const displayedResults = showMore
+    ? searchResultData.slice()
+    : searchResultData.slice(0, 3);
+
+  const showToggle = () => setShowMore((boolean) => !boolean);
 
   // no user inputted search
   if (userInputtedSearch === "") {
@@ -35,8 +45,10 @@ const SearchResults = (props) => {
         ) : (
           <>
             <h2 className="results__header">Search Results</h2>
-            <NewsCardList />
-            <button className="results__more">Show more</button>
+            <NewsCardList displayedResults={displayedResults} />
+            <button className="results__more" onClick={showToggle}>
+              {showMore ? "Show less" : "Show more"}
+            </button>
           </>
         )}
       </div>
