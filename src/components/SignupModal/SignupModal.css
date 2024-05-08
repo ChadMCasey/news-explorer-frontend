@@ -6,3 +6,7 @@
 .modal_type_signup-modal .form__label:last-of-type {
   margin-bottom: 17px;
 }
+
+.modal_type_signup-modal .modal__teriary-link {
+  font-size: 14px;
+}

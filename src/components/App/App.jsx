@@ -16,6 +16,7 @@ import SavedNews from "../SavedNews/SavedNews";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
+import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
 
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
@@ -25,12 +26,17 @@ import { ModalStateContext } from "../../context/ModalStateContext";
 import { placeholderCards } from "../../utils/constants";
 
 function App() {
+  // login state
   const [userData, setUserData] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  // search result states
   const [userInputtedSearch, setUserInputtedSearch] = useState("");
   const [isSearchResultLoading, setIsSearchResultLoading] = useState(false);
   const [searchResultData, setSearchResultData] = useState([]);
   const [showMore, setShowMore] = useState(false);
+
+  // modal state
   const [activeModal, setActiveModal] = useState("");
 
   function handleUserSearch(topic) {
@@ -52,9 +58,12 @@ function App() {
 
   function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
     console.log(values);
-    // setEmailUnavailable(true); // changes state value to notify user that email is unavailable.
+
+    // setEmailUnavailable(false); // changes state value to notify user that email is unavailable.
+    // setEmailUnavailable(true); // remove email unavailable error upon successful registration.
+
     resetFormCallback();
-    closeModal();
+    setActiveModal("registration-complete-modal"); // user registers successfully
   }
 
   useEffect(() => {
@@ -97,6 +106,7 @@ function App() {
 
           <SigninModal handleSignIn={handleSignIn} />
           <SignupModal handleSignUp={handleSignUp} />
+          <RegistrationCompleteModal />
         </ModalStateContext.Provider>
       </IsLoggedInContext.Provider>
     </div>

@@ -77,7 +77,7 @@ const SigninModal = ({ handleSignIn }) => {
       <div className="form__link-area">
         <span className="form__link-text">or </span>
         <button
-          className="form__link-button"
+          className="modal__teriary-link form__link-button"
           type="button"
           onClick={() => setActiveModal("signup-modal")}
         >

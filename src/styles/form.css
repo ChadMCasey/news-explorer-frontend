@@ -114,11 +114,3 @@
 .form__link-text {
   font-size: inherit;
 }
-
-.form__link-button {
-  border: none;
-  background-color: transparent;
-  padding: 0px;
-  color: #2f71e5;
-  font-size: inherit;
-}

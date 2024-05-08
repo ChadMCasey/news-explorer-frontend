@@ -41,6 +41,7 @@ const SignupModal = ({ handleSignUp }) => {
             name="email"
             className="form__input"
             value={values.email || ""}
+            placeholder="Enter email"
             onChange={handleChange}
             required
           />
@@ -59,6 +60,7 @@ const SignupModal = ({ handleSignUp }) => {
             name="password"
             className="form__input"
             value={values.password || ""}
+            placeholder="Enter password"
             minLength={8}
             onChange={handleChange}
             required
@@ -78,6 +80,7 @@ const SignupModal = ({ handleSignUp }) => {
             name="username"
             className="form__input"
             value={values.username || ""}
+            placeholder="Enter your username"
             minLength={3}
             onChange={handleChange}
             required
@@ -97,7 +100,7 @@ const SignupModal = ({ handleSignUp }) => {
       <div className="form__link-area">
         <span className="form__link-text">or </span>
         <button
-          className="form__link-button"
+          className="modal__teriary-link form__link-button"
           type="button"
           onClick={() => setActiveModal("signin-modal")}
         >

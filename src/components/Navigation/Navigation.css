@@ -87,7 +87,7 @@
 .hamburger__bar {
   background-color: #fff;
   width: 32px;
-  height: 4px;
+  height: 3px;
 }
 
 @media screen and (width <= 920px) {
