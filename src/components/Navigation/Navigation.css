@@ -33,6 +33,7 @@
   font-size: 18px;
   font-family: "Roboto";
   font-weight: 400;
+  cursor: pointer;
 }
 
 .bottom {
@@ -60,7 +61,7 @@
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 100px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav__link_type_signin:hover {

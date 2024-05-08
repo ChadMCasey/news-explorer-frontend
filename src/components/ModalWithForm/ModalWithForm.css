@@ -17,7 +17,7 @@
 
   padding: 0px 16px;
 
-  transition: opacity 0.3s linear, visibility 0.2s;
+  transition: opacity 0.2s linear, visibility 0.1s;
 }
 
 .modal_opened {
@@ -27,7 +27,6 @@
 
 .modal__container {
   flex-basis: 430px;
-  height: 380px;
   background-color: #fff;
   border-radius: 16px;
   position: relative;
@@ -54,6 +53,14 @@
   top: -46px;
 
   background: center no-repeat url("../../assets/modal-close.svg");
+
+  cursor: pointer;
+
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal__close:hover {
+  opacity: 0.7;
 }
 
 @media screen and (width < 768px) {

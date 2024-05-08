@@ -1,11 +1,14 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./SigninModal.css";
-import "../../styles/form.css";
-import useFormAndValidation from "../../hooks/useFormAndValidation";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { ModalStateContext } from "../../context/ModalStateContext";
+import "../ModalWithForm/ModalWithForm.css";
+import "../../styles/form.css";
+import "./SignupModal.css";
 
-const SigninModal = ({ handleSignIn }) => {
+const SignupModal = ({ handleSignUp }) => {
+  const [emailUnavailable, setEmailUnavailable] = useState(false);
+
   const { setActiveModal, activeModal } = useContext(ModalStateContext);
 
   const {
@@ -18,9 +21,9 @@ const SigninModal = ({ handleSignIn }) => {
     setIsValid,
   } = useFormAndValidation();
 
-  function signInSubmit(e) {
+  function signUpSubmit(e) {
     e.preventDefault();
-    handleSignIn(values, resetForm);
+    handleSignUp(values, resetForm, setEmailUnavailable);
   }
 
   useEffect(() => {
@@ -28,16 +31,15 @@ const SigninModal = ({ handleSignIn }) => {
   }, [activeModal]);
 
   return (
-    <ModalWithForm title="signin-modal" handleSubmit={signInSubmit}>
-      <h3 className="form__heading">Sign in</h3>
+    <ModalWithForm handleSubmit={signUpSubmit} title="signup-modal">
+      <h3 className="form__heading">Sign up</h3>
       <fieldset className="form__fieldset">
         <label className="form__label">
           Email
           <input
             type="email"
-            className="form__input"
             name="email"
-            placeholder="Enter Email"
+            className="form__input"
             value={values.email || ""}
             onChange={handleChange}
             required
@@ -54,12 +56,11 @@ const SigninModal = ({ handleSignIn }) => {
           Password
           <input
             type="password"
-            className="form__input form__input_type_password"
             name="password"
-            placeholder="Enter Password"
+            className="form__input"
             value={values.password || ""}
-            onChange={handleChange}
             minLength={8}
+            onChange={handleChange}
             required
           />
           <span
@@ -67,25 +68,44 @@ const SigninModal = ({ handleSignIn }) => {
               errors.password && "error-text_display"
             }`}
           >
-            Invalid passsword
+            Invalid password
           </span>
         </label>
+        <label className="form__label">
+          Username
+          <input
+            type="text"
+            name="username"
+            className="form__input"
+            value={values.username || ""}
+            minLength={3}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <p
+          className={`email-unavailable error-text ${
+            emailUnavailable && "error-text_display"
+          }`}
+        >
+          This email is not available
+        </p>
+        <button className="form__submit" disabled={!isValid}>
+          Sign up
+        </button>
       </fieldset>
-      <button className="form__submit" disabled={!isValid}>
-        Sign in
-      </button>
       <div className="form__link-area">
         <span className="form__link-text">or </span>
         <button
           className="form__link-button"
           type="button"
-          onClick={() => setActiveModal("signup-modal")}
+          onClick={() => setActiveModal("signin-modal")}
         >
-          Sign up
+          Sign in
         </button>
       </div>
     </ModalWithForm>
   );
 };
 
-export default SigninModal;
+export default SignupModal;

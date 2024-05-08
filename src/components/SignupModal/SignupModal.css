@@ -1,0 +1,8 @@
+.email-unavailable {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.form__label:last-of-type {
+  margin-bottom: 17px;
+}

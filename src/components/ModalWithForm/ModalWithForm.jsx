@@ -18,7 +18,7 @@ const ModalWithForm = ({ children, title, handleSubmit }) => {
       onClick={modalContainerClose}
     >
       <div className={`modal__container ${modalContainerOpened}`}>
-        <form className="modal__form form" onSubmit={handleSubmit}>
+        <form className="modal__form form" onSubmit={handleSubmit} noValidate>
           {children}
         </form>
         <button className="modal__close" onClick={closeModal}></button>

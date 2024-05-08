@@ -1,7 +1,6 @@
 .form {
   display: flex;
   flex-direction: column;
-  align-content: center;
 }
 
 .form__heading {
@@ -26,6 +25,7 @@
   font-family: "Inter";
   font-size: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .form__label:last-of-type {
@@ -48,9 +48,26 @@
 }
 
 .form__input::placeholder {
-  color: #000;
+  color: rgba(0, 0, 0, 0.2);
   font-family: "Inter";
   font-size: 14px;
+}
+
+.error-text {
+  color: #f00;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  font-family: "Inter";
+  font-size: 12px;
+}
+
+.form__input-error {
+  top: calc(100% + 4px);
+  position: absolute;
+}
+
+.error-text_display {
+  opacity: 1;
 }
 
 .form__submit {
@@ -68,6 +85,23 @@
   font-family: "Inter";
   font-weight: 500;
   color: #fff;
+
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.form__submit:hover {
+  background-color: #347eff;
+}
+
+.form__submit:active {
+  background-color: #2a65cc;
+}
+
+.form__submit:disabled {
+  background-color: #d1d2d6;
+  box-shadow: none;
+  color: #b6bcbf;
 }
 
 .form__link-area {

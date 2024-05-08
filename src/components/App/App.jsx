@@ -15,6 +15,7 @@ import Hero from "../Hero/Hero";
 import SavedNews from "../SavedNews/SavedNews";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import SigninModal from "../SigninModal/SigninModal";
+import SignupModal from "../SignupModal/SignupModal";
 
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
@@ -41,6 +42,19 @@ function App() {
 
   function closeModal() {
     setActiveModal("");
+  }
+
+  function handleSignIn(values, resetFormCallback) {
+    console.log(values);
+    resetFormCallback();
+    closeModal();
+  }
+
+  function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
+    console.log(values);
+    // setEmailUnavailable(true); // changes state value to notify user that email is unavailable.
+    resetFormCallback();
+    closeModal();
   }
 
   useEffect(() => {
@@ -81,7 +95,8 @@ function App() {
           </Routes>
           <Footer />
 
-          <SigninModal />
+          <SigninModal handleSignIn={handleSignIn} />
+          <SignupModal handleSignUp={handleSignUp} />
         </ModalStateContext.Provider>
       </IsLoggedInContext.Provider>
     </div>
