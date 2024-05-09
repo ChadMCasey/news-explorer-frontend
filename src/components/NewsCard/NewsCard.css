@@ -6,6 +6,7 @@
   padding: 20px 24px 24px 24px;
   border-radius: 0px 0px 16px 16px;
   height: 304px;
+  box-sizing: border-box;
   color: #1a1b22;
   background-color: #fff;
 
@@ -44,7 +45,7 @@
 
   /* mulitple line ellipse */
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -78,24 +79,38 @@
 
 @media screen and (width <= 920px) {
   .card__text-content {
-    height: 270px;
+    box-sizing: border-box;
+    justify-content: start;
     padding: 16px;
+    height: auto;
   }
 
   .card__title {
     font-size: 22px;
     line-height: 24px;
+    height: 3lh;
   }
 
   .card__description {
     height: 4lh;
     -webkit-line-clamp: 4;
   }
+
+  .card__source {
+    margin-top: 12px;
+  }
 }
 
 @media screen and (width <= 480px) {
   .card__text-content {
     height: 244px;
+    justify-content: space-between;
+  }
+  .card__text-content-top {
+    margin-bottom: 12px;
+  }
+  .card__title {
     -webkit-line-clamp: 2;
+    height: 2lh;
   }
 }

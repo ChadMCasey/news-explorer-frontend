@@ -65,6 +65,11 @@
   .results__header {
     font-size: 30px;
   }
+
+  .results__more {
+    width: 240px;
+    height: 56px;
+  }
 }
 
 @media screen and (width <= 480px) {

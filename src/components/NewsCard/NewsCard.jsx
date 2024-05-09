@@ -1,6 +1,5 @@
 import React from "react";
 import "./NewsCard.css";
-// import "../NewsCardWithBookmark/NewsCardWithBookmark.css";
 
 const NewsCard = ({ card, children }) => {
   const { image, alt, date, title, description, source } = card;

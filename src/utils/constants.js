@@ -80,7 +80,4 @@ const placeholderCards = [
   },
 ];
 
-const bookmarked = new URL("../assets/bookmark-marked.svg", import.meta.url)
-  .href;
-
-export { placeholderCards, bookmarked };
+export { placeholderCards };

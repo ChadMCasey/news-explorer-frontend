@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ModalStateContext } from "../../context/ModalStateContext";
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
+import { UserDataContext } from "../../context/UserDataContext";
 import NavigationLoggedOut from "../NavigationLoggedOut/NavigationLoggedOut";
 import NavigationLoggedIn from "../NavigationLoggedIn/NavigationLoggedIn";
 
@@ -9,13 +10,13 @@ import "./Navigation.css";
 
 const Navigation = () => {
   const { setActiveModal } = useContext(ModalStateContext);
-  const { isLoggedIn } = useContext(IsLoggedInContext);
+  const { isLoggedIn, handleSignOut } = useContext(IsLoggedInContext);
+  const userData = useContext(UserDataContext);
 
   const style = ({ isActive }) => {
     if (isActive) {
       return {
         borderBottom: "3px solid #fff",
-        paddingTop: 30,
       };
     }
   };
@@ -31,11 +32,18 @@ const Navigation = () => {
 
         <li className="nav__li desktop">
           {isLoggedIn ? (
-            <NavigationLoggedIn style={style} setActiveModal={setActiveModal} />
+            <NavigationLoggedIn
+              style={style}
+              setActiveModal={setActiveModal}
+              userData={userData}
+              handleSignOut={handleSignOut}
+              className="logged-in"
+            />
           ) : (
             <NavigationLoggedOut
               style={style}
               setActiveModal={setActiveModal}
+              className="logged-out"
             />
           )}
         </li>

@@ -1,0 +1,59 @@
+.logged-in.nav__link_type_home {
+  text-align: center;
+  width: 68px;
+  margin-right: 30px;
+}
+
+.nav__link_type_saved-articles {
+  text-align: center;
+  width: 178px;
+  margin-right: 32px;
+  /* border-bottom: 3px solid white; */
+}
+
+.nav__link.nav__link_type_logout {
+  width: 112px;
+  height: 48px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  column-gap: 15px;
+}
+
+.nav__link_type_logout:hover {
+  color: #1a1b22;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.nav__link_type_logout:hover > .nav__logout-icon {
+  background-image: url("../../assets/logout-dark.svg");
+}
+
+.nav__logout-icon {
+  display: block;
+  height: 15px;
+  width: 18px;
+  background: center no-repeat url("../../assets/logout.svg");
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (width <= 920px) {
+  .nav__link.nav__link_type_logout {
+    height: 40px;
+  }
+  .logged-in.nav__link_type_home {
+    width: 64px;
+    text-align: center;
+    margin-right: 16px;
+  }
+
+  .nav__link_type_saved-articles {
+    margin-right: 16px;
+    width: 160px;
+  }
+}

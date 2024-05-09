@@ -21,6 +21,7 @@ import RegistrationCompleteModal from "../RegistrationCompleteModal/Registration
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
 import { ModalStateContext } from "../../context/ModalStateContext";
+import { UserDataContext } from "../../context/UserDataContext";
 
 // constants
 import { placeholderCards } from "../../utils/constants";
@@ -51,19 +52,22 @@ function App() {
   }
 
   function handleSignIn(values, resetFormCallback) {
-    console.log(values);
+    setUserData(values);
+    setIsLoggedIn(true);
     resetFormCallback();
     closeModal();
   }
 
+  function handleSignOut() {
+    setIsLoggedIn(false);
+    setUserData({});
+    console.log("user logged out");
+  }
+
   function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
-    console.log(values);
-
-    // setEmailUnavailable(false); // changes state value to notify user that email is unavailable.
-    // setEmailUnavailable(true); // remove email unavailable error upon successful registration.
-
+    // setEmailUnavailable(false); return;
     resetFormCallback();
-    setActiveModal("registration-complete-modal"); // user registers successfully
+    setActiveModal("registration-complete-modal");
   }
 
   useEffect(() => {
@@ -75,40 +79,42 @@ function App() {
 
   return (
     <div className="page">
-      <IsLoggedInContext.Provider value={isLoggedIn}>
-        <ModalStateContext.Provider
-          value={{ activeModal, setActiveModal, closeModal }}
-        >
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Header>
-                    <Hero handleUserSearch={handleUserSearch} />
-                  </Header>
-                  <Main>
-                    <SearchResults
-                      isSearchResultLoading={isSearchResultLoading}
-                      searchResultData={searchResultData}
-                      userInputtedSearch={userInputtedSearch}
-                      setShowMore={setShowMore}
-                      showMore={showMore}
-                    />
-                    <About />
-                  </Main>
-                </>
-              }
-            />
-            <Route path="/saved-news" element={<SavedNews />} />
-          </Routes>
-          <Footer />
+      <UserDataContext.Provider value={userData}>
+        <IsLoggedInContext.Provider value={{ isLoggedIn, handleSignOut }}>
+          <ModalStateContext.Provider
+            value={{ activeModal, setActiveModal, closeModal }}
+          >
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Header>
+                      <Hero handleUserSearch={handleUserSearch} />
+                    </Header>
+                    <Main>
+                      <SearchResults
+                        isSearchResultLoading={isSearchResultLoading}
+                        searchResultData={searchResultData}
+                        userInputtedSearch={userInputtedSearch}
+                        setShowMore={setShowMore}
+                        showMore={showMore}
+                      />
+                      <About />
+                    </Main>
+                  </>
+                }
+              />
+              <Route path="/saved-news" element={<SavedNews />} />
+            </Routes>
+            <Footer />
 
-          <SigninModal handleSignIn={handleSignIn} />
-          <SignupModal handleSignUp={handleSignUp} />
-          <RegistrationCompleteModal />
-        </ModalStateContext.Provider>
-      </IsLoggedInContext.Provider>
+            <SigninModal handleSignIn={handleSignIn} />
+            <SignupModal handleSignUp={handleSignUp} />
+            <RegistrationCompleteModal />
+          </ModalStateContext.Provider>
+        </IsLoggedInContext.Provider>
+      </UserDataContext.Provider>
     </div>
   );
 }
