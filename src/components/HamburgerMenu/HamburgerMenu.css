@@ -1,0 +1,56 @@
+.hamburger-menu {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 0.15s linear, visibility 0.1s;
+}
+
+.hamburger-menu_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hamburger-menu__container {
+  background-color: #1a1b22;
+}
+
+.hamburger-menu__link {
+  color: white;
+  text-decoration: none;
+}
+
+.hamburger-menu__link.logo {
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+.hamburger-menu__logo-section {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px rgb(232, 232, 232, 0);
+}
+
+.hamburger-menu__close {
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+  background-color: none;
+  border: none;
+  background: center no-repeat url("../../assets/modal-close.svg");
+}
+
+.hamburger-menu__link.home {
+  font-size: 18px;
+  height: 56px;
+  font-family: "Roboto";
+  display: block;
+  place-content: center;
+  font-weight: 500;
+}

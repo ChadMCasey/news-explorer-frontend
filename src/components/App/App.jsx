@@ -17,6 +17,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
@@ -112,6 +113,7 @@ function App() {
             <SigninModal handleSignIn={handleSignIn} />
             <SignupModal handleSignUp={handleSignUp} />
             <RegistrationCompleteModal />
+            <HamburgerMenu />
           </ModalStateContext.Provider>
         </IsLoggedInContext.Provider>
       </UserDataContext.Provider>
