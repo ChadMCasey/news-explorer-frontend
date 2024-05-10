@@ -1,3 +1,26 @@
 .modal_type_signin-modal .modal__teriary-link {
   font-size: 14px;
 }
+
+@media screen and (width <= 576px) {
+  .modal_type_signin-modal {
+    padding: 0px;
+  }
+  .modal_type_signin-modal > .modal__container {
+    place-self: end;
+    height: calc(100vh - 56px);
+    flex-basis: auto;
+    width: 100%;
+    padding: 16px 17px;
+
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .modal_type_signin-modal .modal__close {
+    width: 24px;
+    height: 24px;
+    right: 16px;
+    top: -40px;
+    background-size: contain;
+  }
+}

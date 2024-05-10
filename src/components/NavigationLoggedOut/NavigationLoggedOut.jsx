@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SignInButton from "../SignInButton/SignInButton";
 import "./NavigationLoggedOut.css";
 
 const NavigationNotLoggedIn = ({ style, setActiveModal, className }) => {
@@ -12,12 +13,7 @@ const NavigationNotLoggedIn = ({ style, setActiveModal, className }) => {
       >
         Home
       </NavLink>
-      <button
-        className="nav__link nav__link_type_signin"
-        onClick={() => setActiveModal("signin-modal")}
-      >
-        Sign In
-      </button>
+      <SignInButton />
     </>
   );
 };

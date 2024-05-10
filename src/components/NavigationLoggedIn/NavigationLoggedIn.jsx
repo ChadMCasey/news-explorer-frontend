@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationLoggedIn.css";
+import SignoutButton from "../SignoutButton/SignoutButton";
 
 const NavigationLoggedIn = ({
   style,
@@ -25,13 +26,7 @@ const NavigationLoggedIn = ({
       >
         Saved Articles
       </NavLink>
-      <button
-        className="nav__link nav__link_type_logout"
-        onClick={handleSignOut}
-      >
-        <span className="nav__user-name">Chad</span>
-        <span className="nav__logout-icon"></span>
-      </button>
+      <SignoutButton />
     </>
   );
 };

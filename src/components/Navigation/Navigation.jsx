@@ -10,13 +10,14 @@ import "./Navigation.css";
 
 const Navigation = () => {
   const { setActiveModal } = useContext(ModalStateContext);
-  const { isLoggedIn, handleSignOut } = useContext(IsLoggedInContext);
+  const { isLoggedIn } = useContext(IsLoggedInContext);
   const userData = useContext(UserDataContext);
 
   const style = ({ isActive }) => {
     if (isActive) {
       return {
         borderBottom: "3px solid #fff",
+        color: "#fff",
       };
     }
   };
@@ -36,20 +37,20 @@ const Navigation = () => {
               style={style}
               setActiveModal={setActiveModal}
               userData={userData}
-              handleSignOut={handleSignOut}
-              className="logged-in"
             />
           ) : (
             <NavigationLoggedOut
               style={style}
               setActiveModal={setActiveModal}
-              className="logged-out"
             />
           )}
         </li>
 
         <li className="nav__li mobile">
-          <div className="hamburger">
+          <div
+            className="hamburger"
+            onClick={() => setActiveModal("hamburger-menu")}
+          >
             <div className="hamburger__bar"></div>
             <div className="hamburger__bar"></div>
           </div>
