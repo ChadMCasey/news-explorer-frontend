@@ -1,4 +1,4 @@
-.trash {
+.card__trash {
   background: center no-repeat url("../../assets/trash.svg");
   border: none;
   position: absolute;
@@ -11,6 +11,20 @@
   transition: background-image 0.2s ease-in-out;
 }
 
-.trash:hover {
+.card__trash:hover {
   background-image: url("../../assets/trash-hover.svg");
+}
+
+.card__keyword {
+  place-content: center;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  border-radius: 8px;
+  padding: 0px 22px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
 }

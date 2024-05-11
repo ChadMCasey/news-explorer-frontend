@@ -50,10 +50,21 @@
   visibility: visible;
 }
 
+@media screen and (width <= 1280px) {
+  .bookmark-prompt {
+    width: auto;
+    padding: 0px 15px;
+  }
+}
+
 @media screen and (width <= 920px) {
   .bookmark {
     top: 8px;
     right: 8px;
+  }
+  .bookmark-prompt {
+    top: 8px;
+    right: 53px;
   }
 }
 
@@ -61,5 +72,9 @@
   .bookmark {
     top: 16px;
     right: 16px;
+  }
+  .bookmark-prompt {
+    top: 16px;
+    right: 61px;
   }
 }

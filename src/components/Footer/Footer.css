@@ -1,13 +1,18 @@
+.footer__content.mobile {
+  display: none;
+  box-sizing: border-box;
+}
+
 .footer {
-  height: 80px;
-  place-content: center;
   font-family: "Roboto";
+  display: flex;
 }
 
 .footer__content {
   margin: auto;
-  padding: 0px 104px;
-  max-width: calc(1440px - 208px);
+  padding: 32px 104px 26px 104px;
+  max-width: 1440px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +33,7 @@
   margin-left: 40px;
   text-decoration: none;
   font-size: 18px;
-  color: black;
+  color: #1a1b22;
 }
 
 .footer__link_github {
@@ -44,4 +49,57 @@
   background-image: url("../../assets/facebook.svg");
   height: 24px;
   width: 24px;
+}
+
+@media screen and (width <= 920px) {
+  .footer__content {
+    padding: 24px 40px 18px 40px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .footer__content.desktop {
+    display: none;
+  }
+
+  .footer__content.mobile {
+    display: block;
+    padding: 20px 40px 22px 40px;
+  }
+
+  .footer__row-one {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  .footer__links {
+    align-items: start;
+  }
+
+  .footer__link_home,
+  .footer__link_triple {
+    margin-left: 0;
+  }
+
+  .footer__link_home {
+    margin-bottom: 32px;
+  }
+
+  .footer__links.pages {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .footer__content {
+    padding: 0px 40px;
+    padding-bottom: 22px;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .footer__content.mobile {
+    padding: 20px 16px 22px 16px;
+  }
 }

@@ -13,6 +13,7 @@
 @media screen and (width <= 920px) {
   .cards {
     gap: 8px;
+    padding-top: 32px;
   }
 }
 
@@ -20,5 +21,12 @@
   .cards {
     grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
     gap: 10px;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .cards {
+    padding-top: 58px;
+    padding-bottom: 16px;
   }
 }

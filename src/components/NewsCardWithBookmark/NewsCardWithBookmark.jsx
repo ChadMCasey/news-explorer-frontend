@@ -16,6 +16,7 @@ const NewsCardWithBookmark = (props) => {
   function handleBookmarkClick() {
     if (isLoggedIn) {
       setIsBookmarked(!bookmarked);
+      card.isBookMarked = !card.isBookMarked;
       setIsHovered(false);
     }
   }

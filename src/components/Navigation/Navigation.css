@@ -18,20 +18,23 @@
 
   margin: 0px;
   padding: 0px 104px;
-  width: calc(1440px - 208px);
+  width: 100%;
+  max-width: 1440px;
 }
 
 .nav__link {
-  display: inline-block;
   box-sizing: border-box;
   height: 80px;
 
   text-decoration: none;
+  place-content: center;
 
   color: white;
   font-size: 18px;
   font-family: "Roboto";
-  font-weight: 400;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
 }
 
 .bottom {
@@ -41,20 +44,59 @@
 .nav__link_type_logo {
   font-size: 20px;
   font-family: "Roboto Slab";
-  place-content: center;
   font-weight: 700;
 }
 
-.nav__link_type_home {
-  margin-right: 42px;
-  padding-top: 30px;
-  place-self: end;
+.mobile {
+  display: none;
 }
 
-.nav__link_type_signin {
-  width: 176px;
-  height: 48px;
-  background-color: transparent;
-  border: 1px solid #fff;
-  border-radius: 100px;
+.hamburger {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-content: center;
+  row-gap: 4px;
+}
+
+.hamburger__bar {
+  background-color: #fff;
+  width: 32px;
+  height: 3px;
+}
+
+@media screen and (width <= 920px) {
+  .nav__list {
+    padding: 0px 40px;
+  }
+  .nav__link_type_home {
+    margin-right: 16px;
+  }
+  .nav__link {
+    font-size: 16px;
+  }
+  .nav__link_type_logo {
+    font-size: 20px;
+  }
+}
+
+@media screen and (width < 768px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .nav__list {
+    padding: 0px 16px;
+  }
+  .hamburger__bar {
+    width: 16px;
+    height: 2px;
+  }
 }

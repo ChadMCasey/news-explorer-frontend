@@ -1,0 +1,29 @@
+.saved-news-list {
+  background-color: #f5f6f7;
+  padding: 62px 0px;
+}
+
+.saved-news-list > .cards {
+  margin: auto;
+  padding: 0px;
+  width: calc(100% - 208px);
+  max-width: 1440px;
+}
+
+@media screen and (width <= 920px) {
+  .saved-news-list {
+    padding: 32px 0px;
+  }
+  .saved-news-list > .cards {
+    width: calc(100% - 80px);
+  }
+}
+
+@media screen and (width <= 480px) {
+  .saved-news-list {
+    padding: 24px 0px 12px 0px;
+  }
+  .saved-news-list > .cards {
+    width: calc(100% - 32px);
+  }
+}

@@ -3,3 +3,7 @@
   background-position: center;
   background-size: cover;
 }
+
+.saved-news-page > .header {
+  background-image: none;
+}
