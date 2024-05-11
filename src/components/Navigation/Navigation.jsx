@@ -8,7 +8,7 @@ import NavigationLoggedIn from "../NavigationLoggedIn/NavigationLoggedIn";
 
 import "./Navigation.css";
 
-const Navigation = () => {
+const Navigation = ({ page }) => {
   const { setActiveModal } = useContext(ModalStateContext);
   const { isLoggedIn } = useContext(IsLoggedInContext);
   const userData = useContext(UserDataContext);
@@ -16,8 +16,8 @@ const Navigation = () => {
   const style = ({ isActive }) => {
     if (isActive) {
       return {
-        borderBottom: "3px solid #fff",
-        color: "#fff",
+        borderBottom: page === "/" ? "3px solid #fff" : "3px solid #000",
+        color: page === "/" ? "#fff" : "#000",
       };
     }
   };
@@ -26,7 +26,10 @@ const Navigation = () => {
     <nav className="nav">
       <ul className="nav__list">
         <li className="nav__li">
-          <NavLink to="/" className="nav__link nav__link_type_logo">
+          <NavLink
+            to="/"
+            className={`nav__link ${page || ""} nav__link_type_logo`}
+          >
             NewsExplorer
           </NavLink>
         </li>
@@ -35,12 +38,14 @@ const Navigation = () => {
           {isLoggedIn ? (
             <NavigationLoggedIn
               style={style}
+              page={page || ""}
               setActiveModal={setActiveModal}
               userData={userData}
             />
           ) : (
             <NavigationLoggedOut
               style={style}
+              page={page || ""}
               setActiveModal={setActiveModal}
             />
           )}

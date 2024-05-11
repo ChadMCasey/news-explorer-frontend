@@ -6,27 +6,27 @@ import SignoutButton from "../SignoutButton/SignoutButton";
 const NavigationLoggedIn = ({
   style,
   setActiveModal,
-  className,
   userData,
   handleSignOut,
+  page,
 }) => {
   return (
     <>
       <NavLink
         style={style}
         to="/"
-        className={`${className} nav__link nav__link_type_home`}
+        className={`nav__link ${page} nav__link_type_home`}
       >
         Home
       </NavLink>
       <NavLink
         style={style}
-        to="/saved-articles"
-        className="nav__link nav__link_type_saved-articles"
+        to="/saved-news"
+        className={`nav__link ${page} nav__link_type_saved-articles`}
       >
         Saved Articles
       </NavLink>
-      <SignoutButton />
+      <SignoutButton page={page} />
     </>
   );
 };

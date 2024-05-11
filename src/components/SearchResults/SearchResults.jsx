@@ -45,7 +45,10 @@ const SearchResults = ({
         ) : (
           <>
             <h2 className="results__header">Search Results</h2>
-            <NewsCardList displayedResults={displayedResults} />
+            <NewsCardList
+              displayedResults={displayedResults}
+              cardType="bookmark"
+            />
             <button className="results__more" onClick={showToggle}>
               {showMore ? "Show less" : "Show more"}
             </button>

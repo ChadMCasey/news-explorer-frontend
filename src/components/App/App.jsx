@@ -18,6 +18,7 @@ import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
@@ -106,7 +107,17 @@ function App() {
                   </>
                 }
               />
-              <Route path="/saved-news" element={<SavedNews />} />
+              <Route
+                path="/saved-news"
+                element={
+                  <div className="saved-news-page">
+                    <Header>
+                      <SavedNewsHeader />
+                    </Header>
+                    <SavedNews placeholderCards={placeholderCards} />
+                  </div>
+                }
+              />
             </Routes>
             <Footer />
 

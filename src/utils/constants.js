@@ -2,6 +2,7 @@ const placeholderCards = [
   {
     id: 1,
     isBookMarked: false,
+    keyword: "Nature",
     date: "November 4, 2020",
     title: "Everyone Needs a Special 'Sit Spot' in Nature",
     description: `Ever since I read Richard Louv's influential book,
@@ -19,6 +20,7 @@ const placeholderCards = [
   {
     id: 2,
     isBookMarked: false,
+    keyword: "Nature",
     date: "February 19, 2019",
     title: "Nature makes you better",
     description: `We all know how good nature can make us feel.
@@ -35,6 +37,7 @@ const placeholderCards = [
   {
     id: 3,
     isBookMarked: false,
+    keyword: "Parks",
     date: "October 19, 2020",
     title: "Grand Teton Renews Historic Crest Trail",
     description: `The linking together of the Cascade and Death
@@ -51,6 +54,7 @@ const placeholderCards = [
   {
     id: 4,
     isBookMarked: false,
+    keyword: "Yellowstone",
     date: "October 19, 2020",
     title: "Nostalgic Photos of Tourists in U.S. National Parks",
     description: `Uri Løvevild Golman and Helle Løvevild Golman are National Geographic 
@@ -66,6 +70,7 @@ const placeholderCards = [
   {
     id: 5,
     isBookMarked: false,
+    keyword: "Photography",
     date: "March 16, 2020",
     title: "Scientists Don't Know Why Polaris Is So Weird",
     description: `Humans have long relied on the starry sky to push into new frontiers, 

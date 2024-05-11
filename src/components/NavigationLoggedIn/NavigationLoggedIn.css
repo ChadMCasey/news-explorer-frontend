@@ -44,16 +44,16 @@
 }
 
 @media screen and (width <= 920px) {
-  .nav__link_type_logout {
+  .nav__link.nav__link_type_logout {
     height: 40px;
   }
-  .nav__link_type_home {
+  .nav__link.nav__link_type_home {
     width: 64px;
     text-align: center;
     margin-right: 16px;
   }
 
-  .nav__link_type_saved-articles {
+  .nav__link.nav__link_type_saved-articles {
     margin-right: 16px;
     width: 160px;
   }
