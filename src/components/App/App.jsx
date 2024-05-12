@@ -19,33 +19,69 @@ import SignupModal from "../SignupModal/SignupModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import EmptySearchModal from "../EmptySearchModal/EmptySearchModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 // context
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
 import { ModalStateContext } from "../../context/ModalStateContext";
 import { UserDataContext } from "../../context/UserDataContext";
 
-// constants
+// constants & utils
 import { placeholderCards } from "../../utils/constants";
+import { fromDate, toDate } from "../../utils/date.js";
+import { getData, setData } from "../../utils/localStorage";
+
+// classes
+import NewsAPI from "../../utils/NewsAPI";
+
+// API's
+const newsAPI = new NewsAPI();
 
 function App() {
   // login state
   const [userData, setUserData] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // search result states
   const [userInputtedSearch, setUserInputtedSearch] = useState("");
   const [isSearchResultLoading, setIsSearchResultLoading] = useState(false);
   const [searchResultData, setSearchResultData] = useState([]);
-  const [showMore, setShowMore] = useState(false);
+  const [searchError, setSearchError] = useState(false);
+  const [shown, setShown] = useState(3);
 
   // modal state
   const [activeModal, setActiveModal] = useState("");
 
-  function handleUserSearch(topic) {
-    setUserInputtedSearch(topic);
-    setIsSearchResultLoading(true);
+  function handleUserSearch(topic, resetForm) {
     setSearchResultData(placeholderCards);
+    setData("articles", JSON.stringify(placeholderCards));
+
+    setIsSearchResultLoading(true);
+    setUserInputtedSearch(topic);
+    setShown(3);
+
+    // newsAPI
+    //   .getNewsData({
+    //     q: topic,
+    //     from: fromDate(),
+    //     to: toDate(),
+    //   })
+
+    //   .then((res) => {
+    //     console.log(res);
+    //     setSearchResultData(res.articles);
+    //     setData("articles", res.articles)
+
+    //   })
+    //   .catch((err) => {
+    //     console.error(`Error fetching news data: Status ${err.status}`);
+    //   })
+
+    //   .finally(() => {
+    //     resetForm();
+    //   });
+
     setTimeout(() => setIsSearchResultLoading(false), 1000);
   }
 
@@ -62,8 +98,9 @@ function App() {
 
   function handleSignOut() {
     setIsLoggedIn(false);
+    setUserInputtedSearch("");
     setUserData({});
-    console.log("user logged out");
+    setSearchResultData([]);
   }
 
   function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
@@ -78,6 +115,11 @@ function App() {
     window.addEventListener("keydown", escModalClose);
     return () => window.removeEventListener("keydown", escModalClose);
   }, [activeModal]);
+
+  useEffect(() => {
+    const savedArticles = JSON.parse(getData("articles")) || [];
+    setSearchResultData(savedArticles);
+  }, []);
 
   return (
     <div className="page">
@@ -99,8 +141,9 @@ function App() {
                         isSearchResultLoading={isSearchResultLoading}
                         searchResultData={searchResultData}
                         userInputtedSearch={userInputtedSearch}
-                        setShowMore={setShowMore}
-                        showMore={showMore}
+                        searchError={searchError}
+                        shown={shown}
+                        setShown={setShown}
                       />
                       <About />
                     </Main>
@@ -110,12 +153,14 @@ function App() {
               <Route
                 path="/saved-news"
                 element={
-                  <div className="saved-news-page">
-                    <Header>
-                      <SavedNewsHeader />
-                    </Header>
-                    <SavedNews placeholderCards={placeholderCards} />
-                  </div>
+                  <ProtectedRoute>
+                    <div className="saved-news-page">
+                      <Header>
+                        <SavedNewsHeader />
+                      </Header>
+                      <SavedNews placeholderCards={placeholderCards} />
+                    </div>
+                  </ProtectedRoute>
                 }
               />
             </Routes>
@@ -125,6 +170,7 @@ function App() {
             <SignupModal handleSignUp={handleSignUp} />
             <RegistrationCompleteModal />
             <HamburgerMenu />
+            <EmptySearchModal />
           </ModalStateContext.Provider>
         </IsLoggedInContext.Provider>
       </UserDataContext.Provider>

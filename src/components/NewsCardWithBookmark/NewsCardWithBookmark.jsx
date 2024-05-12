@@ -8,7 +8,7 @@ import { IsLoggedInContext } from "../../context/IsLoggedInContext";
 const NewsCardWithBookmark = (props) => {
   const { card } = props;
 
-  const isLoggedIn = useContext(IsLoggedInContext);
+  const { isLoggedIn } = useContext(IsLoggedInContext);
 
   const [bookmarked, setIsBookmarked] = useState(card.isBookMarked);
   const [hovered, setIsHovered] = useState(false);

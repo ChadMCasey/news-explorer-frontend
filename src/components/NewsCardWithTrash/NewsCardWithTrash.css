@@ -1,14 +1,22 @@
+.card-abs {
+  position: absolute;
+  height: 40px;
+  background-color: white;
+  border-radius: 8px;
+  place-content: center;
+  font-family: "Roboto";
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
 .card__trash {
   background: center no-repeat url("../../assets/trash.svg");
+  background-color: #fff;
   border: none;
-  position: absolute;
   top: 24px;
   right: 24px;
-  height: 40px;
   width: 40px;
-  border-radius: 8px;
-  background-color: #fff;
-  transition: background-image 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .card__trash:hover {
@@ -16,15 +24,55 @@
 }
 
 .card__keyword {
-  place-content: center;
-  height: 40px;
-  background-color: white;
-  position: absolute;
   top: 24px;
   left: 24px;
-  border-radius: 8px;
   padding: 0px 22px;
-  font-family: "Roboto";
-  font-weight: 500;
   font-size: 14px;
+}
+
+.card__remove-callout {
+  visibility: hidden;
+  opacity: 0;
+  top: 24px;
+  right: 69px;
+  padding: 0px 26px;
+  font-size: 12px;
+}
+
+.card__trash:hover + .card__remove-callout {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (width < 1440px) {
+  .card__remove-callout-desktop {
+    display: none;
+  }
+}
+
+@media screen and (width <= 1280px) {
+  .card__trash {
+    top: 8px;
+    right: 8px;
+  }
+  .card__remove-callout {
+    display: none;
+    top: 8px;
+    right: 53px;
+  }
+  .card__keyword {
+    padding: 0px 20px;
+    left: 8px;
+    top: 8px;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .card__remove-callout {
+    display: block;
+    padding: 0px 13px;
+    top: 8px;
+    right: 53px;
+  }
 }

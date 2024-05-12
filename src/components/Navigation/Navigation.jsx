@@ -16,7 +16,6 @@ const Navigation = ({ page }) => {
   const style = ({ isActive }) => {
     if (isActive) {
       return {
-        borderBottom: page === "/" ? "3px solid #fff" : "3px solid #000",
         color: page === "/" ? "#fff" : "#000",
       };
     }
@@ -56,8 +55,8 @@ const Navigation = ({ page }) => {
             className="hamburger"
             onClick={() => setActiveModal("hamburger-menu")}
           >
-            <div className="hamburger__bar"></div>
-            <div className="hamburger__bar"></div>
+            <div className={`${page || ""} hamburger__bar`}></div>
+            <div className={`${page || ""} hamburger__bar`}></div>
           </div>
         </li>
       </ul>

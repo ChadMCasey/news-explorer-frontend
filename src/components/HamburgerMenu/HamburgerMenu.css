@@ -113,6 +113,7 @@
   .hamburger-menu__container > .nav__link_type_logout {
     font-size: 18px;
     margin-left: 16px;
+    height: 56px;
   }
 
   .hamburger-menu__container > .nav__link_type_signin,

@@ -1,6 +1,8 @@
 .saved-news-list {
   background-color: #f5f6f7;
   padding: 62px 0px;
+  display: flex;
+  justify-content: center;
 }
 
 .saved-news-list > .cards {
@@ -10,12 +12,40 @@
   max-width: 1440px;
 }
 
+.saved-news-list__placeholder {
+  max-width: 250px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.saved-news-list__heading {
+  font-size: 26px;
+  font-family: "Roboto Slab";
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.saved-news-list__description {
+  font-size: 18px;
+  font-family: "Roboto";
+  line-height: 24px;
+  color: #b6bcbf;
+}
+
 @media screen and (width <= 920px) {
   .saved-news-list {
     padding: 32px 0px;
   }
   .saved-news-list > .cards {
     width: calc(100% - 80px);
+  }
+  .saved-news-list__heading {
+    font-size: 20px;
+  }
+
+  .saved-news-list__description {
+    font-size: 16px;
   }
 }
 

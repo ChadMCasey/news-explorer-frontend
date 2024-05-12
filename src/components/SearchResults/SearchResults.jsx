@@ -4,23 +4,20 @@ import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
+import SearchError from "../SearchError/SearchError";
 
 const SearchResults = ({
   isSearchResultLoading,
   userInputtedSearch,
   searchResultData,
-  setShowMore,
-  showMore,
+  shown,
+  setShown,
+  searchError,
 }) => {
-  const isNoSearchResult = Object.keys(searchResultData).length === 0; // empty search result object means no result
-  const displayedResults = showMore
-    ? searchResultData.slice()
-    : searchResultData.slice(0, 3);
+  const isNoSearchResult = searchResultData.length === 0;
+  const displayedResults = searchResultData.slice(0, shown);
 
-  const showToggle = () => setShowMore((boolean) => !boolean);
-
-  // no user inputted search
-  if (userInputtedSearch === "") {
+  if (!userInputtedSearch && isNoSearchResult) {
     return;
   }
 
@@ -31,6 +28,16 @@ const SearchResults = ({
         <div className="results__content">
           <Preloader />
           <p className="result__searching">Searching for news...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (searchError) {
+    return (
+      <section className="results">
+        <div className="results__content">
+          <SearchError />
         </div>
       </section>
     );
@@ -49,9 +56,14 @@ const SearchResults = ({
               displayedResults={displayedResults}
               cardType="bookmark"
             />
-            <button className="results__more" onClick={showToggle}>
-              {showMore ? "Show less" : "Show more"}
-            </button>
+            {shown < searchResultData.length && (
+              <button
+                className="results__more"
+                onClick={() => setShown((curr) => curr + 3)}
+              >
+                show more
+              </button>
+            )}
           </>
         )}
       </div>

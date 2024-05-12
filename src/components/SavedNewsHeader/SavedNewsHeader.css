@@ -18,8 +18,8 @@
   color: black;
 }
 
-.nav__link.saved-news.nav__link_type_saved-articles {
-  color: black;
+.saved-news.hamburger__bar {
+  background-color: black;
 }
 
 .saved-news-header {

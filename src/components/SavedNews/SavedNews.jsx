@@ -14,10 +14,19 @@ const SavedNews = ({ placeholderCards }) => {
 
   return (
     <section className="saved-news-list">
-      <NewsCardList
-        displayedResults={displayedResults}
-        removeBookMarkedCard={removeBookMarkedCard}
-      />
+      {displayedResults.length === 0 ? (
+        <div className="saved-news-list__placeholder">
+          <p className="saved-news-list__heading">No articles found</p>
+          <p className="saved-news-list__description">
+            Your saved news articles will appear here.
+          </p>
+        </div>
+      ) : (
+        <NewsCardList
+          displayedResults={displayedResults}
+          removeBookMarkedCard={removeBookMarkedCard}
+        />
+      )}
     </section>
   );
 };

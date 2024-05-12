@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SearchForm.css";
 import useFormAndValidation from "../../hooks/useFormAndValidation";
+import { ModalStateContext } from "../../context/ModalStateContext";
 
-const SearchForm = (props) => {
-  const { handleUserSearch } = props;
+const SearchForm = ({ handleUserSearch }) => {
+  const { activeModal, setActiveModal } = useContext(ModalStateContext);
 
   const {
     values,
@@ -16,12 +17,13 @@ const SearchForm = (props) => {
   } = useFormAndValidation();
 
   function handleSearchSubmission(e) {
-    if (values.topic) {
-      handleUserSearch(values.topic);
-    }
-
     e.preventDefault();
-    resetForm();
+
+    if (!values.topic || values.topic === "") {
+      setActiveModal("empty-search-modal");
+    } else {
+      handleUserSearch(values.topic, resetForm);
+    }
   }
 
   return (
