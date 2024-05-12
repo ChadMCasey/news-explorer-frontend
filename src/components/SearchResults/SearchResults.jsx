@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
@@ -12,6 +13,7 @@ const SearchResults = ({
   setShown,
   searchError,
   handleBookmarkInteraction,
+  isLoggedIn,
 }) => {
   const isNoSearchResult = searchResultData.length === 0;
   const displayedResults = searchResultData.slice(0, shown);

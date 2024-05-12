@@ -4,8 +4,17 @@ const NewsCard = (props) => {
   const { imgUrl, articleUrl, publishedAt, title, description, source } =
     props.card;
 
+  const handleCardClick = (e) => {
+    if (
+      !e.target.classList.contains("card__trash") &&
+      !e.target.classList.contains("bookmark")
+    ) {
+      window.open(articleUrl, "_blank");
+    }
+  };
+
   return (
-    <li className="card" onClick={() => window.open(articleUrl, "_blank")}>
+    <li className="card" onClick={handleCardClick}>
       <div className="card-img__container">
         <img src={imgUrl} className="card__img" />
       </div>

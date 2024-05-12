@@ -42,6 +42,8 @@ function App() {
   const [userCardData, setUserCardData] = useState([
     {
       id: 121431342342,
+      articleUrl:
+        "https://www.wired.com/story/ftx-creditors-crypto-payout-rejection/",
       imgUrl: "https://www.sciencedaily.com/images/scidaily-icon.png",
       publishedAt: "May 9, 2024",
       title: "Study shows heightened sensitivity to PTSD in autism",
@@ -129,7 +131,7 @@ function App() {
 
   function handleSignIn(values, resetFormCallback) {
     setUserData(values);
-    // setUserCardData;
+    // setUserCardData; // get data from database
     setIsLoggedIn(true);
     resetFormCallback();
     closeModal();
@@ -140,6 +142,7 @@ function App() {
     setUserInputtedSearch("");
     setUserData({});
     setUserCardData([]);
+    setSearchResultData([]);
   }
 
   function handleSignUp(values, resetFormCallback) {
