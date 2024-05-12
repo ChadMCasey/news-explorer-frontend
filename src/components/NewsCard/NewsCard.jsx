@@ -1,10 +1,11 @@
 import "./NewsCard.css";
 
 const NewsCard = (props) => {
-  const { imgUrl, publishedAt, title, description, source } = props.card;
+  const { imgUrl, articleUrl, publishedAt, title, description, source } =
+    props.card;
 
   return (
-    <li className="card">
+    <li className="card" onClick={() => window.open(articleUrl, "_blank")}>
       <div className="card-img__container">
         <img src={imgUrl} className="card__img" />
       </div>

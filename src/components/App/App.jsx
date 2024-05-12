@@ -111,12 +111,14 @@ function App() {
     const cards = cardsArray.map((obj) => {
       return {
         imgUrl: obj.urlToImage,
+        articleUrl: obj.url,
         publishedAt: formatSearchResultDate(obj.publishedAt),
         title: obj.title,
         description: obj.description,
         source: obj.source.name,
       };
     });
+    console.log(cards);
     setSearchResultData(cards);
     setData("articles", JSON.stringify(cards));
   }
