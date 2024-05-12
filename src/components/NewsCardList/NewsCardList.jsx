@@ -5,12 +5,23 @@ import NewsCard from "../NewsCard/NewsCard.jsx";
 import NewsCardWithBookmark from "../NewsCardWithBookmark/NewsCardWithBookmark.jsx";
 import NewsCardWithTrash from "../NewsCardWithTrash/NewsCardWithTrash.jsx";
 
-const NewsCardList = ({ displayedResults, cardType, removeBookMarkedCard }) => {
+const NewsCardList = ({
+  displayedResults,
+  cardType,
+  handleBookmarkInteraction,
+  removeBookMarkedCard,
+}) => {
   return (
     <ul className="cards">
       {displayedResults.map((card, i) => {
         if (cardType === "bookmark") {
-          return <NewsCardWithBookmark key={i} card={card} />;
+          return (
+            <NewsCardWithBookmark
+              key={i}
+              card={card}
+              handleBookmarkInteraction={handleBookmarkInteraction}
+            />
+          );
         } else {
           return (
             <NewsCardWithTrash

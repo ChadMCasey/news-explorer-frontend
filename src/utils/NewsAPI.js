@@ -1,7 +1,7 @@
 export default class NewsAPI {
   constructor() {
     this.apiKey = "1c1afd6c571848f1b495da9cdcd7f399";
-    this.baseUrl = `https://newsapi.org/v2/everything?pageSize=100&apiKey=1c1afd6c571848f1b495da9cdcd7f399&`;
+    this.baseUrl = `https://newsapi.org/v2/everything?pageSize=100&sortBy=popularity&apiKey=1c1afd6c571848f1b495da9cdcd7f399&`;
   }
 
   getNewsData({ q, from, to }) {

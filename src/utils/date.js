@@ -1,3 +1,5 @@
+import { dateMap } from "./constants";
+
 const fromDate = () => {
   return formatDate(new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000));
 };
@@ -15,4 +17,14 @@ const formatDate = (date) => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-export { fromDate, toDate };
+const formatSearchResultDate = (origDate) => {
+  const dateArr = origDate.split("T")[0].split("-");
+  const year = dateArr[0];
+  const month = dateMap[dateArr[1]];
+  const day = dateArr[2].startsWith("0") ? dateArr[2][1] : dateArr[2];
+  const formattedDate = `${month} ${day}, ${year}`;
+
+  return formattedDate;
+};
+
+export { fromDate, toDate, formatSearchResultDate };

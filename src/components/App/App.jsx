@@ -29,8 +29,8 @@ import { UserDataContext } from "../../context/UserDataContext";
 
 // constants & utils
 import { placeholderCards } from "../../utils/constants";
-import { fromDate, toDate } from "../../utils/date.js";
 import { getData, setData } from "../../utils/localStorage";
+import { fromDate, toDate, formatSearchResultDate } from "../../utils/date.js";
 
 // classes
 import NewsAPI from "../../utils/NewsAPI";
@@ -39,50 +39,88 @@ import NewsAPI from "../../utils/NewsAPI";
 const newsAPI = new NewsAPI();
 
 function App() {
-  // login state
+  // user
   const [userData, setUserData] = useState({});
+  const [userCardData, setUserCardData] = useState([
+    {
+      id: 121431342342,
+      imgUrl: "https://www.sciencedaily.com/images/scidaily-icon.png",
+      publishedAt: "May 9, 2024",
+      title: "Study shows heightened sensitivity to PTSD in autism",
+      description:
+        "A new study shows that a mild stress is enough to …al relationship, identifying a predisposition to…",
+      source: "Science Daily",
+    },
+  ]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // search result states
+  // search result
   const [userInputtedSearch, setUserInputtedSearch] = useState("");
   const [isSearchResultLoading, setIsSearchResultLoading] = useState(false);
   const [searchResultData, setSearchResultData] = useState([]);
   const [searchError, setSearchError] = useState(false);
   const [shown, setShown] = useState(3);
 
-  // modal state
+  // modal
   const [activeModal, setActiveModal] = useState("");
 
   function handleUserSearch(topic, resetForm) {
-    setSearchResultData(placeholderCards);
-    setData("articles", JSON.stringify(placeholderCards));
-
     setIsSearchResultLoading(true);
     setUserInputtedSearch(topic);
-    setShown(3);
 
-    // newsAPI
-    //   .getNewsData({
-    //     q: topic,
-    //     from: fromDate(),
-    //     to: toDate(),
-    //   })
-
-    //   .then((res) => {
-    //     console.log(res);
-    //     setSearchResultData(res.articles);
-    //     setData("articles", res.articles)
-
-    //   })
-    //   .catch((err) => {
-    //     console.error(`Error fetching news data: Status ${err.status}`);
-    //   })
-
-    //   .finally(() => {
-    //     resetForm();
-    //   });
+    newsAPI
+      .getNewsData({
+        q: topic,
+        from: fromDate(),
+        to: toDate(),
+      })
+      .then((res) => {
+        saveSearchResults(res.articles);
+        setSearchError(false);
+        resetForm();
+      })
+      .catch((err) => {
+        console.error(`Error fetching news data: Status ${err.status}`);
+        setSearchError(true);
+      })
+      .finally(() => {
+        setShown(3);
+        setIsSearchResultLoading(false);
+      });
 
     setTimeout(() => setIsSearchResultLoading(false), 1000);
+  }
+
+  function handleBookmarkInteraction(isBookedMarked, card) {
+    console.log(isBookedMarked, card);
+    if (isBookedMarked) {
+      // API call to /articles & save the card.
+      // update user card data to reflect these changes
+    } else {
+      // API call to /articles & unsave the card.
+      // update user card data to reflect these changes
+    }
+  }
+
+  function removeBookMarkedCard(removeCard) {
+    console.log(removeCard.id); // API call to /articles & unsave the card.
+    setUserCardData((prevSaved) => {
+      return prevSaved.filter((card) => card.id !== removeCard.id);
+    });
+  }
+
+  function saveSearchResults(cardsArray) {
+    const cards = cardsArray.map((obj) => {
+      return {
+        imgUrl: obj.urlToImage,
+        publishedAt: formatSearchResultDate(obj.publishedAt),
+        title: obj.title,
+        description: obj.description,
+        source: obj.source.name,
+      };
+    });
+    setSearchResultData(cards);
+    setData("articles", JSON.stringify(cards));
   }
 
   function closeModal() {
@@ -91,6 +129,7 @@ function App() {
 
   function handleSignIn(values, resetFormCallback) {
     setUserData(values);
+    // setUserCardData;
     setIsLoggedIn(true);
     resetFormCallback();
     closeModal();
@@ -100,7 +139,7 @@ function App() {
     setIsLoggedIn(false);
     setUserInputtedSearch("");
     setUserData({});
-    setSearchResultData([]);
+    setUserCardData([]);
   }
 
   function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
@@ -109,6 +148,7 @@ function App() {
     setActiveModal("registration-complete-modal");
   }
 
+  // modal escape close evt
   useEffect(() => {
     if (activeModal === "") return;
     const escModalClose = (e) => e.key == "Escape" && closeModal();
@@ -116,11 +156,13 @@ function App() {
     return () => window.removeEventListener("keydown", escModalClose);
   }, [activeModal]);
 
+  // load previous search results
   useEffect(() => {
     const savedArticles = JSON.parse(getData("articles")) || [];
     setSearchResultData(savedArticles);
   }, []);
 
+  console.log(userCardData);
   return (
     <div className="page">
       <UserDataContext.Provider value={userData}>
@@ -144,6 +186,7 @@ function App() {
                         searchError={searchError}
                         shown={shown}
                         setShown={setShown}
+                        handleBookmarkInteraction={handleBookmarkInteraction}
                       />
                       <About />
                     </Main>
@@ -158,7 +201,10 @@ function App() {
                       <Header>
                         <SavedNewsHeader />
                       </Header>
-                      <SavedNews placeholderCards={placeholderCards} />
+                      <SavedNews
+                        userCardData={userCardData}
+                        removeBookMarkedCard={removeBookMarkedCard}
+                      />
                     </div>
                   </ProtectedRoute>
                 }

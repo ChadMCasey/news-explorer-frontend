@@ -5,19 +5,16 @@ import "./NewsCardWithBookmark.css";
 // contexts
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
 
-const NewsCardWithBookmark = (props) => {
-  const { card } = props;
-
+const NewsCardWithBookmark = ({ card, handleBookmarkInteraction }) => {
   const { isLoggedIn } = useContext(IsLoggedInContext);
-
-  const [bookmarked, setIsBookmarked] = useState(card.isBookMarked);
+  const [bookmarked, setIsBookmarked] = useState(false);
   const [hovered, setIsHovered] = useState(false);
 
   function handleBookmarkClick() {
     if (isLoggedIn) {
-      setIsBookmarked(!bookmarked);
-      card.isBookMarked = !card.isBookMarked;
       setIsHovered(false);
+      handleBookmarkInteraction(!bookmarked, card);
+      setIsBookmarked(!bookmarked);
     }
   }
 
@@ -33,7 +30,7 @@ const NewsCardWithBookmark = (props) => {
 
   return (
     <>
-      <NewsCard {...props}>
+      <NewsCard card={card}>
         <button
           className={`bookmark ${bookmarked && "bookmark_marked"} 
                                ${hovered && "bookmark_hovered"}`}

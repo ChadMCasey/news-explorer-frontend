@@ -13,6 +13,7 @@ const SearchResults = ({
   shown,
   setShown,
   searchError,
+  handleBookmarkInteraction,
 }) => {
   const isNoSearchResult = searchResultData.length === 0;
   const displayedResults = searchResultData.slice(0, shown);
@@ -54,6 +55,7 @@ const SearchResults = ({
             <h2 className="results__header">Search Results</h2>
             <NewsCardList
               displayedResults={displayedResults}
+              handleBookmarkInteraction={handleBookmarkInteraction}
               cardType="bookmark"
             />
             {shown < searchResultData.length && (

@@ -1,15 +1,18 @@
 import React from "react";
 import "./NewsCard.css";
 
-const NewsCard = ({ card, children }) => {
-  const { image, alt, date, title, description, source } = card;
+const NewsCard = (props) => {
+  const { imgUrl, publishedAt, title, description, source } = props.card;
 
   return (
     <li className="card">
-      <img src={image} alt={alt} className="card__img" />
+      <div className="card-img__container">
+        <img src={imgUrl} className="card__img" />
+      </div>
+
       <div className="card__text-content">
         <div className="card__text-content-top">
-          <p className="card-text  card__date">{date}</p>
+          <p className="card-text  card__date">{publishedAt}</p>
           <h3 className="card-text card__title">{title}</h3>
         </div>
         <div className="card__text-content-bottom">
@@ -17,7 +20,7 @@ const NewsCard = ({ card, children }) => {
           <p className="card-text  card__source">{source}</p>
         </div>
       </div>
-      {children}
+      {props.children}
     </li>
   );
 };
