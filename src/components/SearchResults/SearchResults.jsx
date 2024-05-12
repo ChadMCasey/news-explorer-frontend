@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-
 import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";

@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
-
 import "./NewsCardList.css";
-import NewsCard from "../NewsCard/NewsCard.jsx";
 import NewsCardWithBookmark from "../NewsCardWithBookmark/NewsCardWithBookmark.jsx";
 import NewsCardWithTrash from "../NewsCardWithTrash/NewsCardWithTrash.jsx";
 

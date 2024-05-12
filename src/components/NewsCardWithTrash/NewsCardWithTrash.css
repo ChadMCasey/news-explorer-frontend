@@ -46,7 +46,13 @@
 }
 
 @media screen and (width < 1440px) {
-  .card__remove-callout-desktop {
+  .card__trash:hover + .card__remove-callout {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .card__remove-callout {
     display: none;
   }
 }
@@ -55,11 +61,6 @@
   .card__trash {
     top: 8px;
     right: 8px;
-  }
-  .card__remove-callout {
-    display: none;
-    top: 8px;
-    right: 53px;
   }
   .card__keyword {
     padding: 0px 20px;

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./SavedNews.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 

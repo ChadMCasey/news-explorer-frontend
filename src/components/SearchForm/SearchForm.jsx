@@ -1,20 +1,12 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./SearchForm.css";
 import useFormAndValidation from "../../hooks/useFormAndValidation";
 import { ModalStateContext } from "../../context/ModalStateContext";
 
 const SearchForm = ({ handleUserSearch }) => {
-  const { activeModal, setActiveModal } = useContext(ModalStateContext);
+  const { setActiveModal } = useContext(ModalStateContext);
 
-  const {
-    values,
-    errors,
-    handleChange,
-    isValid,
-    resetForm,
-    setValues,
-    setIsValid,
-  } = useFormAndValidation();
+  const { values, handleChange, resetForm } = useFormAndValidation();
 
   function handleSearchSubmission(e) {
     e.preventDefault();

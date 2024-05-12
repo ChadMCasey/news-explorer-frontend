@@ -1,4 +1,3 @@
-import React from "react";
 import "./NothingFound.css";
 import NothingFoundMagnifier from "../../assets/not-found.svg";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import SearchErrorIcon from "../../assets/search-error.svg";
 import "./SearchError.css";
 

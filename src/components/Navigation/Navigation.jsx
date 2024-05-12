@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ModalStateContext } from "../../context/ModalStateContext";
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
-import { UserDataContext } from "../../context/UserDataContext";
 import NavigationLoggedOut from "../NavigationLoggedOut/NavigationLoggedOut";
 import NavigationLoggedIn from "../NavigationLoggedIn/NavigationLoggedIn";
 
@@ -11,7 +10,6 @@ import "./Navigation.css";
 const Navigation = ({ page }) => {
   const { setActiveModal } = useContext(ModalStateContext);
   const { isLoggedIn } = useContext(IsLoggedInContext);
-  const userData = useContext(UserDataContext);
 
   const style = ({ isActive }) => {
     if (isActive) {
@@ -35,18 +33,9 @@ const Navigation = ({ page }) => {
 
         <li className="nav__li desktop">
           {isLoggedIn ? (
-            <NavigationLoggedIn
-              style={style}
-              page={page || ""}
-              setActiveModal={setActiveModal}
-              userData={userData}
-            />
+            <NavigationLoggedIn style={style} page={page || ""} />
           ) : (
-            <NavigationLoggedOut
-              style={style}
-              page={page || ""}
-              setActiveModal={setActiveModal}
-            />
+            <NavigationLoggedOut style={style} page={page || ""} />
           )}
         </li>
 

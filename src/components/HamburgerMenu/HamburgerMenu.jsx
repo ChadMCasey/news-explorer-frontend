@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import SignInButton from "../SignInButton/SignInButton";
 import { ModalStateContext } from "../../context/ModalStateContext";

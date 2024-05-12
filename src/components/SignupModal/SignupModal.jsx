@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { ModalStateContext } from "../../context/ModalStateContext";
@@ -9,26 +9,15 @@ import "./SignupModal.css";
 const SignupModal = ({ handleSignUp }) => {
   const [emailUnavailable, setEmailUnavailable] = useState(false);
 
-  const { setActiveModal, activeModal } = useContext(ModalStateContext);
+  const { setActiveModal } = useContext(ModalStateContext);
 
-  const {
-    values,
-    errors,
-    handleChange,
-    isValid,
-    resetForm,
-    setValues,
-    setIsValid,
-  } = useFormAndValidation();
+  const { values, errors, handleChange, isValid, resetForm } =
+    useFormAndValidation();
 
   function signUpSubmit(e) {
     e.preventDefault();
     handleSignUp(values, resetForm, setEmailUnavailable);
   }
-
-  useEffect(() => {
-    resetForm();
-  }, [activeModal]);
 
   return (
     <ModalWithForm handleSubmit={signUpSubmit} title="signup-modal">

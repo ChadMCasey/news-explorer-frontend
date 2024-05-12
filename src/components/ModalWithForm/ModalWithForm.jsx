@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-import { ModalStateContext } from "../../context/ModalStateContext";
 import Modal from "../Modal/Modal";
 import "./ModalWithForm.css";
 

@@ -1,6 +1,6 @@
 // external
 import { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // css
 import "./App.css";
@@ -13,7 +13,6 @@ import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
 import Hero from "../Hero/Hero";
 import SavedNews from "../SavedNews/SavedNews";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
@@ -28,7 +27,6 @@ import { ModalStateContext } from "../../context/ModalStateContext";
 import { UserDataContext } from "../../context/UserDataContext";
 
 // constants & utils
-import { placeholderCards } from "../../utils/constants";
 import { getData, setData } from "../../utils/localStorage";
 import { fromDate, toDate, formatSearchResultDate } from "../../utils/date.js";
 
@@ -142,7 +140,7 @@ function App() {
     setUserCardData([]);
   }
 
-  function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
+  function handleSignUp(values, resetFormCallback) {
     // setEmailUnavailable(false); return;
     resetFormCallback();
     setActiveModal("registration-complete-modal");
@@ -162,7 +160,6 @@ function App() {
     setSearchResultData(savedArticles);
   }, []);
 
-  console.log(userCardData);
   return (
     <div className="page">
       <UserDataContext.Provider value={userData}>

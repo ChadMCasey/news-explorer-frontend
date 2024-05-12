@@ -1,15 +1,8 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationLoggedIn.css";
 import SignoutButton from "../SignoutButton/SignoutButton";
 
-const NavigationLoggedIn = ({
-  style,
-  setActiveModal,
-  userData,
-  handleSignOut,
-  page,
-}) => {
+const NavigationLoggedIn = ({ style, page }) => {
   function activeClass(classes, active) {
     if (active.isActive) {
       return classes + " " + "after";
