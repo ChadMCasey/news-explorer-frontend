@@ -31,7 +31,7 @@
 
   color: white;
   font-size: 18px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: 0.15s ease-in-out;
@@ -40,7 +40,7 @@
 .nav__link.nav__link_type_home {
   text-align: center;
   width: 68px;
-  margin-right: 30px;
+  margin-right: 34px;
   color: #b6bcbf;
   position: relative;
 }
@@ -62,7 +62,7 @@
 
 .nav__link_type_logo {
   font-size: 20px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
 }
 
@@ -96,11 +96,13 @@
   .nav__list {
     padding: 0px 40px;
   }
-  .nav__link_type_home {
-    margin-right: 16px;
+  .nav__link.nav__link_type_home {
+    margin-right: 18px;
+    width: 60px;
   }
   .nav__link {
     font-size: 16px;
+    height: 66px;
   }
   .nav__link_type_logo {
     font-size: 20px;
@@ -117,6 +119,12 @@
 }
 
 @media screen and (width <= 480px) {
+  .nav__link_type_logo {
+    font-size: 16px;
+  }
+  .nav__link {
+    height: 56px;
+  }
   .nav__list {
     padding: 0px 16px;
   }

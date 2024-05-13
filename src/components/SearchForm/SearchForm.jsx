@@ -23,7 +23,7 @@ const SearchForm = ({ handleUserSearch }) => {
       <input
         type="text"
         name="topic"
-        placeholder="Enter Topic"
+        placeholder="Yellowstone"
         className="search-form__input"
         value={values.topic || ""}
         onChange={handleChange}

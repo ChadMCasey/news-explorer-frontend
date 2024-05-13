@@ -21,14 +21,14 @@
 
 .saved-news-list__heading {
   font-size: 26px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", sans-serif;
   margin-top: 0px;
   margin-bottom: 16px;
 }
 
 .saved-news-list__description {
   font-size: 18px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   line-height: 24px;
   color: #b6bcbf;
 }

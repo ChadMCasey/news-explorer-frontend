@@ -4,7 +4,7 @@
 }
 
 .footer {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   display: flex;
 }
 
@@ -46,18 +46,18 @@
 .footer__link_facebook {
   display: inline-block;
   margin-left: 24px;
-  background-image: url("../../assets/facebook.svg");
+  background: center no-repeat url("../../assets/facebook.svg");
   height: 24px;
   width: 24px;
 }
 
 @media screen and (width <= 920px) {
   .footer__content {
-    padding: 24px 40px 18px 40px;
+    padding: 24px 40px 19px 40px;
   }
 }
 
-@media screen and (width <= 768px) {
+@media screen and (width < 768px) {
   .footer__content.desktop {
     display: none;
   }
