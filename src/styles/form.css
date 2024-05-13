@@ -24,8 +24,11 @@
   color: #2f71e5;
   font-family: "Inter";
   font-size: 12px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
+}
+
+.form__label > .form__input:focus {
+  border-bottom: 1px solid #2f71e5;
 }
 
 .form__label:last-of-type {
@@ -35,12 +38,14 @@
 .form__input {
   width: 100%;
   display: block;
-  margin-top: 10px;
-  margin-bottom: 6px;
-  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-left: 0px;
+  margin: 0px;
   border: none;
   outline: none;
   font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .form__input_type_password {

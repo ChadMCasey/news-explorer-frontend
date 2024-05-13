@@ -9,7 +9,8 @@
 .hero__heading {
   margin-top: 0px;
   margin-bottom: 32px;
-  font-family: "Roboto Slab";
+  line-height: 64px;
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 400;
   font-size: 60px;
 }
@@ -17,7 +18,7 @@
 .hero__subheading {
   margin-top: 0px;
   margin-bottom: 88px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
 }
 
@@ -28,9 +29,12 @@
   }
   .hero__heading {
     font-size: 36px;
+    margin-bottom: 16px;
+    line-height: 40px;
   }
   .hero__subheading {
     margin-bottom: 48px;
+    line-height: 24px;
   }
 }
 
@@ -44,5 +48,10 @@
 @media screen and (width <= 480px) {
   .hero {
     max-width: calc(100% - 32px);
+    padding-top: 30px;
+    padding-bottom: 32px;
+  }
+  .hero__subheading {
+    margin-bottom: 120px;
   }
 }

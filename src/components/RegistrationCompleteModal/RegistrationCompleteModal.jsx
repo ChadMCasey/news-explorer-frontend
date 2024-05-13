@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Modal from "../Modal/Modal";
 import { ModalStateContext } from "../../context/ModalStateContext";
 import "./RegistrationCompleteModal.css";

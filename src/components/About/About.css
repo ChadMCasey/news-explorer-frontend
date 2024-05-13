@@ -22,24 +22,23 @@
 
 .about__text-area {
   max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
   color: #1a1b22;
 }
 
 .about__heading {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 400;
   font-size: 40px;
-  margin-top: 0;
+  line-height: 46px;
+  margin-top: 54px;
   margin-bottom: 21px;
 }
 
 .about__paragraph {
   margin-top: 0px;
   margin-bottom: 21px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   line-height: 24px;
 }
@@ -51,6 +50,7 @@
 @media screen and (width <= 1024px) {
   .about__heading {
     font-size: 30px;
+    line-height: 40px;
   }
   .about__image {
     height: 232px;
@@ -59,8 +59,21 @@
 }
 
 @media screen and (width <= 920px) {
+  .about {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
   .about__content {
     padding: 0px 40px;
+    column-gap: 32px;
+  }
+  .about__image {
+    margin-top: 21px;
+  }
+  .about__heading {
+    margin-bottom: 10px;
+    margin-top: 0px;
   }
 }
 
@@ -85,5 +98,11 @@
 
   .about__content {
     padding: 0px 16px;
+  }
+  .about__image {
+    margin-top: 0px;
+  }
+  .about__heading {
+    margin-bottom: 16px;
   }
 }

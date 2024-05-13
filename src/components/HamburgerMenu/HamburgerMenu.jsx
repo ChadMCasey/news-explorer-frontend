@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import SignInButton from "../SignInButton/SignInButton";
 import { ModalStateContext } from "../../context/ModalStateContext";
@@ -15,17 +15,29 @@ const HamburgerMenu = () => {
   const style = ({ isActive }) => {
     if (isActive) {
       return {
-        borderBottom: "1px solid #fff",
         color: "#fff",
       };
     }
   };
 
+  const closeHamburgerModal = (e) => {
+    if (e.target === e.currentTarget) {
+      setActiveModal("");
+    }
+  };
+
   return (
-    <div className={`hamburger-menu ${isOpen && "hamburger-menu_visible"}`}>
+    <div
+      onClick={closeHamburgerModal}
+      className={`hamburger-menu ${isOpen && "hamburger-menu_visible"}`}
+    >
       <div className="hamburger-menu__container">
         <div className="hamburger-menu__logo-section">
-          <NavLink to="/" className="hamburger-menu__link logo">
+          <NavLink
+            to="/"
+            className="hamburger-menu__link logo"
+            onClick={() => setActiveModal("")}
+          >
             NewsExplorer
           </NavLink>
           <button
@@ -33,16 +45,22 @@ const HamburgerMenu = () => {
             onClick={() => setActiveModal("")}
           ></button>
         </div>
-        <NavLink to="/" style={style} className="hamburger-menu__link home">
+        <NavLink
+          to="/"
+          style={style}
+          className="hamburger-menu__link home"
+          onClick={() => setActiveModal("")}
+        >
           Home
         </NavLink>
 
         {isLoggedIn ? (
           <>
             <NavLink
-              to="/saved-articles"
+              to="/saved-news"
               style={style}
               className="hamburger-menu__link saved-articles"
+              onClick={() => setActiveModal("")}
             >
               Saved Articles
             </NavLink>

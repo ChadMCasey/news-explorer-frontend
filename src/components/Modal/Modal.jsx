@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ModalStateContext } from "../../context/ModalStateContext";
 import "./Modal.css";
 
 const Modal = ({ title, children }) => {
-  const { activeModal, setActiveModal, closeModal } =
-    useContext(ModalStateContext);
+  const { activeModal, closeModal } = useContext(ModalStateContext);
 
   const modalOpened = activeModal === title ? "modal_opened" : "";
   const modalContainerOpened = modalOpened ? "modal__container_opened" : "";

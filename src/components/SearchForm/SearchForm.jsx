@@ -1,27 +1,21 @@
-import React from "react";
+import { useContext } from "react";
 import "./SearchForm.css";
 import useFormAndValidation from "../../hooks/useFormAndValidation";
+import { ModalStateContext } from "../../context/ModalStateContext";
 
-const SearchForm = (props) => {
-  const { handleUserSearch } = props;
+const SearchForm = ({ handleUserSearch }) => {
+  const { setActiveModal } = useContext(ModalStateContext);
 
-  const {
-    values,
-    errors,
-    handleChange,
-    isValid,
-    resetForm,
-    setValues,
-    setIsValid,
-  } = useFormAndValidation();
+  const { values, handleChange, resetForm } = useFormAndValidation();
 
   function handleSearchSubmission(e) {
-    if (values.topic) {
-      handleUserSearch(values.topic);
-    }
-
     e.preventDefault();
-    resetForm();
+
+    if (!values.topic || values.topic === "") {
+      setActiveModal("empty-search-modal");
+    } else {
+      handleUserSearch(values.topic, resetForm);
+    }
   }
 
   return (
@@ -29,7 +23,7 @@ const SearchForm = (props) => {
       <input
         type="text"
         name="topic"
-        placeholder="Enter Topic"
+        placeholder="Yellowstone"
         className="search-form__input"
         value={values.topic || ""}
         onChange={handleChange}
