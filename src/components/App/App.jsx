@@ -32,26 +32,16 @@ import { fromDate, toDate, formatSearchResultDate } from "../../utils/date.js";
 
 // classes
 import NewsAPI from "../../utils/NewsAPI";
+import BackendAPI from "../../utils/BackendAPI";
 
 // API's
 const newsAPI = new NewsAPI();
+const backendAPI = new BackendAPI();
 
 function App() {
   // user
-  const [userData, setUserData] = useState({});
-  const [userCardData, setUserCardData] = useState([
-    {
-      id: 121431342342,
-      articleUrl:
-        "https://www.wired.com/story/ftx-creditors-crypto-payout-rejection/",
-      imgUrl: "https://www.sciencedaily.com/images/scidaily-icon.png",
-      publishedAt: "May 9, 2024",
-      title: "Study shows heightened sensitivity to PTSD in autism",
-      description:
-        "A new study shows that a mild stress is enough to …al relationship, identifying a predisposition to…",
-      source: "Science Daily",
-    },
-  ]);
+  const [userData, setUserData] = useState({ name: "", email: "", _id: "" });
+  const [userCardData, setUserCardData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // search result
@@ -112,6 +102,7 @@ function App() {
   function saveSearchResults(cardsArray) {
     const cards = cardsArray.map((obj) => {
       return {
+        keyword: userInputtedSearch,
         imgUrl: obj.urlToImage,
         articleUrl: obj.url,
         publishedAt: formatSearchResultDate(obj.publishedAt),
@@ -145,10 +136,24 @@ function App() {
     setSearchResultData([]);
   }
 
-  function handleSignUp(values, resetFormCallback) {
-    // setEmailUnavailable(false); return;
-    resetFormCallback();
-    setActiveModal("registration-complete-modal");
+  function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
+    backendAPI
+      .signUp({
+        name: values.username,
+        email: values.email,
+        password: values.password,
+      })
+      .then(() => {
+        resetFormCallback();
+        setActiveModal("registration-complete-modal");
+      })
+      .catch((error) => {
+        error.json().then((error) => {
+          if (error.message === "The Provided email is unavaiable.") {
+            setEmailUnavailable(true);
+          }
+        });
+      });
   }
 
   // modal escape close evt
