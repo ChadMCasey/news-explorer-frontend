@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
@@ -13,7 +12,6 @@ const SearchResults = ({
   setShown,
   searchError,
   handleBookmarkInteraction,
-  isLoggedIn,
 }) => {
   const isNoSearchResult = searchResultData.length === 0;
   const displayedResults = searchResultData.slice(0, shown);
@@ -52,7 +50,7 @@ const SearchResults = ({
           <NothingFound />
         ) : (
           <>
-            <h2 className="results__header">Search Results</h2>
+            <h2 className="results__header">Search results</h2>
             <NewsCardList
               displayedResults={displayedResults}
               handleBookmarkInteraction={handleBookmarkInteraction}

@@ -9,6 +9,7 @@
   border-radius: 8px;
   background-color: #fff;
   transition: background-image 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .bookmark_marked {
@@ -34,7 +35,7 @@
   background-color: #fff;
   border-radius: 8px;
   font-size: 12px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   width: 182px;
   color: #1a1b22;

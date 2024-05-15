@@ -15,8 +15,8 @@ const NewsCard = (props) => {
 
   return (
     <li className="card" onClick={handleCardClick}>
-      <div className="card-img__container">
-        <img src={imgUrl} className="card__img" />
+      <div className="card__img-container">
+        <img src={imgUrl} alt={title} className="card__img" />
       </div>
 
       <div className="card__text-content">

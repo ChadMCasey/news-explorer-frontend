@@ -19,21 +19,19 @@
 .hamburger-menu__container {
   background-color: #1a1b22;
   padding-bottom: 24px;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
 }
 
 .hamburger-menu__link {
   color: white;
   text-decoration: none;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 500;
   width: fit-content;
 }
 
 .hamburger-menu__link.logo {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
   font-size: 20px;
   margin-left: 16px;

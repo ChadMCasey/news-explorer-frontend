@@ -56,6 +56,8 @@ function App() {
 
   function handleUserSearch(topic, resetForm) {
     setIsSearchResultLoading(true);
+    setSearchResultData([]);
+    setSearchError(false);
     setUserInputtedSearch(topic);
 
     newsAPI
@@ -77,8 +79,6 @@ function App() {
         setShown(3);
         setIsSearchResultLoading(false);
       });
-
-    setTimeout(() => setIsSearchResultLoading(false), 1000);
   }
 
   function handleBookmarkInteraction(isBookedMarked, card) {

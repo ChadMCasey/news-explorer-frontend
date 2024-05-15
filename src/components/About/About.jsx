@@ -11,7 +11,7 @@ const About = () => {
           className="about__image"
         />
         <div className="about__text-area">
-          <h2 className="about__heading">About The author</h2>
+          <h2 className="about__heading">About the author</h2>
           <div className="about__description-area">
             <p className="about__paragraph">
               Chad is a Full Stack Developer & UI Designer from Michigan. The

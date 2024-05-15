@@ -15,7 +15,7 @@
   margin-top: 0px;
   margin-bottom: 16px;
 
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", sans-serif;
   font-size: 26px;
   color: #1a1b22;
 }
@@ -23,7 +23,7 @@
 .nothing-found__subheading {
   margin: 0px;
 
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   color: #b6bcbf;
 }
