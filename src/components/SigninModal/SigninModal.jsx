@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./SigninModal.css";
 import "../../styles/form.css";
@@ -6,7 +6,7 @@ import useFormAndValidation from "../../hooks/useFormAndValidation";
 import { ModalStateContext } from "../../context/ModalStateContext";
 
 const SigninModal = ({ handleSignIn }) => {
-  const { setActiveModal } = useContext(ModalStateContext);
+  const { activeModal, setActiveModal } = useContext(ModalStateContext);
 
   const { values, errors, handleChange, isValid, resetForm } =
     useFormAndValidation();
@@ -15,6 +15,12 @@ const SigninModal = ({ handleSignIn }) => {
     e.preventDefault();
     handleSignIn(values, resetForm);
   }
+
+  useEffect(() => {
+    if (activeModal === "signin-modal") {
+      resetForm();
+    }
+  }, [activeModal]);
 
   return (
     <ModalWithForm title="signin-modal" handleSubmit={signInSubmit}>
