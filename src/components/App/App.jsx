@@ -28,6 +28,7 @@ import { UserDataContext } from "../../context/UserDataContext";
 
 // constants & utils
 import { getData, setData } from "../../utils/localStorage";
+import { setToken, getToken, removeToken } from "../../utils/token";
 import { fromDate, toDate, formatSearchResultDate } from "../../utils/date.js";
 
 // classes
@@ -40,7 +41,11 @@ const backendAPI = new BackendAPI();
 
 function App() {
   // user
-  const [userData, setUserData] = useState({ name: "", email: "", _id: "" });
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    _id: "",
+  });
   const [userCardData, setUserCardData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -67,7 +72,7 @@ function App() {
         to: toDate(),
       })
       .then((res) => {
-        saveSearchResults(res.articles);
+        saveSearchResults(res.articles, topic);
         setSearchError(false);
         resetForm();
       })
@@ -81,37 +86,84 @@ function App() {
       });
   }
 
-  function handleBookmarkInteraction(isBookedMarked, card) {
-    console.log(isBookedMarked, card);
+  // homepage
+  async function handleBookmarkInteraction(isBookedMarked, card) {
+    const { date, image, keyword, link, source, text, title } = card;
     if (isBookedMarked) {
-      // API call to /articles & save the card.
-      // update user card data to reflect these changes
+      backendAPI
+        .saveArticle(
+          {
+            date,
+            image,
+            keyword,
+            link,
+            source,
+            text,
+            title,
+            owner: userData._id,
+          },
+          getToken()
+        )
+        .then((res) => {
+          const savedCard = searchResultData.find((c) => c.link === res.link);
+          savedCard._id = res._id;
+          savedCard.owner = res.owner;
+          savedCard.bookmared = true;
+          setData("articles", JSON.stringify(searchResultData));
+          return true;
+        })
+        .catch((err) => {
+          console.error(`Error saving article: ${err.message}`);
+        });
     } else {
-      // API call to /articles & unsave the card.
-      // update user card data to reflect these changes
+      backendAPI
+        .unsaveArticle(card._id, getToken())
+        .then(() => {
+          clearArticleDBinformation();
+        })
+        .catch((err) => {
+          console.error(`Error unsaving article: ${err.message}`);
+        });
     }
   }
 
+  // saved articles page
   function removeBookMarkedCard(removeCard) {
-    console.log(removeCard.id); // API call to /articles & unsave the card.
-    setUserCardData((prevSaved) => {
-      return prevSaved.filter((card) => card.id !== removeCard.id);
-    });
+    backendAPI
+      .unsaveArticle(removeCard._id, getToken())
+      .then((res) => {
+        console.log(res);
+        clearArticleDBinformation(removeCard._id);
+        setUserCardData((prevSaved) => {
+          return prevSaved.filter((card) => card._id !== removeCard._id);
+        });
+      })
+      .catch((err) => {
+        console.error(`Error removing bookmarked card: ${err.status}`);
+      });
   }
 
-  function saveSearchResults(cardsArray) {
+  function clearArticleDBinformation(id) {
+    const savedCard = searchResultData.find((c) => c._id === id);
+    delete savedCard.owner;
+    delete savedCard._id;
+    savedCard.bookmarked = false;
+    setData("articles", JSON.stringify(searchResultData));
+  }
+
+  function saveSearchResults(cardsArray, topic) {
     const cards = cardsArray.map((obj) => {
       return {
-        keyword: userInputtedSearch,
-        imgUrl: obj.urlToImage,
-        articleUrl: obj.url,
-        publishedAt: formatSearchResultDate(obj.publishedAt),
+        keyword: topic,
+        image: obj.urlToImage,
+        link: obj.url,
+        date: formatSearchResultDate(obj.publishedAt),
         title: obj.title,
-        description: obj.description,
+        text: obj.description,
         source: obj.source.name,
+        bookmarked: false,
       };
     });
-    console.log(cards);
     setSearchResultData(cards);
     setData("articles", JSON.stringify(cards));
   }
@@ -121,11 +173,28 @@ function App() {
   }
 
   function handleSignIn(values, resetFormCallback) {
-    setUserData(values);
-    // setUserCardData; // get data from database
-    setIsLoggedIn(true);
-    resetFormCallback();
-    closeModal();
+    backendAPI
+      .signIn(values.email, values.password)
+      .then((res) => {
+        const { name, email, token, _id } = res;
+        // first login user
+        setUserData({ name, email, _id });
+        setToken(token);
+        setIsLoggedIn(true);
+        resetFormCallback();
+        closeModal();
+      })
+      .catch((err) => {
+        err
+          .json()
+          .then((err) => console.error(`User sign in error: ${err.message}`));
+      });
+  }
+
+  function fetchUserArticleData() {
+    backendAPI.getAllSavedArticles(getToken()).then((res) => {
+      setUserCardData(res);
+    });
   }
 
   function handleSignOut() {
@@ -133,7 +202,7 @@ function App() {
     setUserInputtedSearch("");
     setUserData({});
     setUserCardData([]);
-    setSearchResultData([]);
+    closeModal();
   }
 
   function handleSignUp(values, resetFormCallback, setEmailUnavailable) {
@@ -149,6 +218,7 @@ function App() {
       })
       .catch((error) => {
         error.json().then((error) => {
+          console.error(`User registration Error: ${error.message}`);
           if (error.message === "The Provided email is unavaiable.") {
             setEmailUnavailable(true);
           }
@@ -156,7 +226,6 @@ function App() {
       });
   }
 
-  // modal escape close evt
   useEffect(() => {
     if (activeModal === "") return;
     const escModalClose = (e) => e.key == "Escape" && closeModal();
@@ -164,10 +233,33 @@ function App() {
     return () => window.removeEventListener("keydown", escModalClose);
   }, [activeModal]);
 
-  // load previous search results
   useEffect(() => {
-    const savedArticles = JSON.parse(getData("articles")) || [];
+    let savedArticles = JSON.parse(getData("articles")) || [];
+    savedArticles = savedArticles.map((article) => {
+      article._id ? (article.bookmarked = true) : (article.bookmarked = false);
+      return article;
+    });
     setSearchResultData(savedArticles);
+  }, []);
+
+  useEffect(() => {
+    const jwt = getToken();
+    if (jwt) {
+      backendAPI
+        .getUserData(jwt)
+        .then((res) => {
+          const { name, email, _id } = res;
+          setIsLoggedIn(true);
+          setUserData({
+            name,
+            email,
+            _id,
+          });
+        })
+        .catch((err) => {
+          console.error(`Authentication Error: ${err.message}`);
+        });
+    }
   }, []);
 
   return (
@@ -210,6 +302,7 @@ function App() {
                       </Header>
                       <SavedNews
                         userCardData={userCardData}
+                        fetchUserArticleData={fetchUserArticleData}
                         removeBookMarkedCard={removeBookMarkedCard}
                       />
                     </div>

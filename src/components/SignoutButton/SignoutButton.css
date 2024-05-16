@@ -1,0 +1,39 @@
+.nav__link.nav__link_type_logout {
+  height: 48px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  padding: 12px 19px;
+}
+
+.nav__link_type_logout:hover {
+  color: #1a1b22;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.nav__link_type_logout:hover > .nav__logout-icon {
+  background-image: url("../../assets/logout-dark.svg");
+}
+
+.nav__user-name {
+  padding-right: 15px;
+}
+
+.nav__logout-icon {
+  display: block;
+  height: 15px;
+  width: 18px;
+  background: center no-repeat url("../../assets/logout.svg");
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (width <= 920px) {
+  .nav__link.nav__link_type_logout {
+    height: 40px;
+  }
+}

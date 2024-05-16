@@ -4,8 +4,6 @@ import "./NewsCardWithTrash.css";
 const NewsCardWithTrash = (props) => {
   const { card, removeBookMarkedCard } = props;
 
-  console.log(card);
-
   return (
     <NewsCard {...props}>
       <button

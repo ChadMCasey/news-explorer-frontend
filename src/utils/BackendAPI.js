@@ -15,7 +15,7 @@ export default class BackendAPI {
     });
   }
 
-  signIn({ email, password }) {
+  signIn(email, password) {
     return this._request(`${this._baseUrl}/signin`, {
       method: "POST",
       headers: this._headers,
@@ -33,7 +33,17 @@ export default class BackendAPI {
     });
   }
 
-  unsaveClothingItem(articleId, token) {
+  getAllSavedArticles(token) {
+    return this._request(`${this._baseUrl}/articles`, {
+      method: "GET",
+      headers: {
+        ...this._headers,
+        authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+  unsaveArticle(articleId, token) {
     return this._request(`${this._baseUrl}/articles/${articleId}`, {
       method: "DELETE",
       headers: {
@@ -43,24 +53,14 @@ export default class BackendAPI {
     });
   }
 
-  saveClothingItem(article, token) {
-    const { keyword, title, text, date, source, link, image, owner } = article;
+  saveArticle(article, token) {
     return this._request(`${this._baseUrl}/articles`, {
       method: "POST",
       headers: {
         ...this._headers,
         authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        keyword,
-        title,
-        text,
-        date,
-        source,
-        link,
-        image,
-        owner,
-      }),
+      body: JSON.stringify(article),
     });
   }
 

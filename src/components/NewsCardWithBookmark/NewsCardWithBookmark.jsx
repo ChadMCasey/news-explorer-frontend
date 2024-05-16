@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardWithBookmark.css";
 
@@ -7,13 +7,14 @@ import { IsLoggedInContext } from "../../context/IsLoggedInContext";
 
 const NewsCardWithBookmark = ({ card, handleBookmarkInteraction }) => {
   const { isLoggedIn } = useContext(IsLoggedInContext);
-  const [bookmarked, setIsBookmarked] = useState(false);
+  const [bookmarked, setIsBookmarked] = useState(card.bookmarked);
   const [hovered, setIsHovered] = useState(false);
 
   function handleBookmarkClick() {
     if (isLoggedIn) {
       setIsHovered(false);
-      handleBookmarkInteraction(!bookmarked, card);
+      handleBookmarkInteraction(!card.bookmarked, card);
+      card.bookmarked = !card.bookmarked;
       setIsBookmarked(!bookmarked);
     }
   }

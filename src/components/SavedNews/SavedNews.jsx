@@ -1,7 +1,17 @@
 import "./SavedNews.css";
+import { useEffect } from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
+import BackendAPI from "../../utils/BackendAPI";
 
-const SavedNews = ({ userCardData, removeBookMarkedCard }) => {
+const SavedNews = ({
+  userCardData,
+  removeBookMarkedCard,
+  fetchUserArticleData,
+}) => {
+  useEffect(() => {
+    fetchUserArticleData();
+  }, []);
+
   return (
     <section className="saved-news-list">
       {userCardData.length === 0 ? (

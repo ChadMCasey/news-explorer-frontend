@@ -20,7 +20,6 @@ const SignupModal = ({ handleSignUp }) => {
   }
 
   useEffect(() => {
-    // when opened we must reset the email unavailable logic
     if (activeModal === "signup-modal") {
       setEmailUnavailable(false);
     }
