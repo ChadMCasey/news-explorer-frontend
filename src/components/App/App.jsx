@@ -129,13 +129,9 @@ function App() {
 
   // saved articles page
   function removeBookMarkedCard(removeCard) {
-    console.log(removeCard._id);
-    console.log(userData);
-    console.log(userCardData);
     backendAPI
       .unsaveArticle(removeCard._id, getToken())
       .then((res) => {
-        console.log(res);
         clearArticleDBinformation(removeCard._id);
         setUserCardData((prevSaved) => {
           return prevSaved.filter((card) => card._id !== removeCard._id);
