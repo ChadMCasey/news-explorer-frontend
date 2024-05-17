@@ -1,7 +1,7 @@
 export default class BackendAPI {
   constructor() {
     this.dev = "http://localhost:3001";
-    this.prod = "http://localhost:3001";
+    this.prod = "https://api.newsexplorer.iii.cl";
     this._baseUrl =
       process.env.NODE_ENV === "production" ? this.prod : this.dev;
     this._headers = { "Content-Type": "application/json" };

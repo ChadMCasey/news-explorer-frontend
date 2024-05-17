@@ -129,6 +129,9 @@ function App() {
 
   // saved articles page
   function removeBookMarkedCard(removeCard) {
+    console.log(removeCard._id);
+    console.log(userData);
+    console.log(userCardData);
     backendAPI
       .unsaveArticle(removeCard._id, getToken())
       .then((res) => {
@@ -145,9 +148,11 @@ function App() {
 
   function clearArticleDBinformation(id) {
     const savedCard = searchResultData.find((c) => c._id === id);
-    delete savedCard.owner;
-    delete savedCard._id;
-    savedCard.bookmarked = false;
+    if (savedCard) {
+      delete savedCard.owner;
+      delete savedCard._id;
+      savedCard.bookmarked = false;
+    }
     setData("articles", JSON.stringify(searchResultData));
   }
 
@@ -202,6 +207,8 @@ function App() {
     setUserInputtedSearch("");
     setUserData({});
     setUserCardData([]);
+    setSearchResultData([]);
+    removeToken();
     closeModal();
   }
 
@@ -235,10 +242,20 @@ function App() {
 
   useEffect(() => {
     let savedArticles = JSON.parse(getData("articles")) || [];
-    savedArticles = savedArticles.map((article) => {
-      article._id ? (article.bookmarked = true) : (article.bookmarked = false);
-      return article;
-    });
+    if (getToken()) {
+      savedArticles = savedArticles.map((article) => {
+        article._id
+          ? (article.bookmarked = true)
+          : (article.bookmarked = false);
+        return article;
+      });
+    } else {
+      savedArticles = savedArticles.map((article) => {
+        article.bookmarked = false;
+        return article;
+      });
+    }
+
     setSearchResultData(savedArticles);
   }, []);
 
@@ -298,7 +315,7 @@ function App() {
                   <ProtectedRoute>
                     <div className="saved-news-page">
                       <Header>
-                        <SavedNewsHeader />
+                        <SavedNewsHeader userCardData={userCardData} />
                       </Header>
                       <SavedNews
                         userCardData={userCardData}

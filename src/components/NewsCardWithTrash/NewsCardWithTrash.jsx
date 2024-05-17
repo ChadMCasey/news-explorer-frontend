@@ -14,7 +14,11 @@ const NewsCardWithTrash = (props) => {
         Remove
         <span className="card__remove-callout-desktop"> from saved</span>
       </div>
-      <div className="card-abs card__keyword">{"Something"}</div>
+      <div className="card-abs card__keyword">
+        {card.keyword.length > 12
+          ? `${card.keyword.slice(0, 12)}...`
+          : card.keyword}
+      </div>
     </NewsCard>
   );
 };

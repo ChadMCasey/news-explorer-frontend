@@ -1,7 +1,6 @@
 import "./SavedNews.css";
 import { useEffect } from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
-import BackendAPI from "../../utils/BackendAPI";
 
 const SavedNews = ({
   userCardData,
