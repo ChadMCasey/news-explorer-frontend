@@ -20,7 +20,7 @@ const SigninModal = ({ handleSignIn }) => {
     if (activeModal === "signin-modal") {
       resetForm();
     }
-  }, [activeModal]);
+  }, [activeModal, resetForm]);
 
   return (
     <ModalWithForm title="signin-modal" handleSubmit={signInSubmit}>
