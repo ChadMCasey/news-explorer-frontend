@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://newsexplorer.iii.cl",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,8 @@
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "scp -r ./dist/* gbchadd@newsexplorer.iii.cl:/home/gbchadd/news-explorer-frontend"
   },
   "dependencies": {
     "react": "^18.2.0",
