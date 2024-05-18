@@ -1,6 +1,6 @@
 // external
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 // css
 import "./App.css";
@@ -58,6 +58,9 @@ function App() {
 
   // modal
   const [activeModal, setActiveModal] = useState("");
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   function handleUserSearch(topic, resetForm) {
     setIsSearchResultLoading(true);
@@ -131,7 +134,7 @@ function App() {
   function removeBookMarkedCard(removeCard) {
     backendAPI
       .unsaveArticle(removeCard._id, getToken())
-      .then((res) => {
+      .then(() => {
         clearArticleDBinformation(removeCard._id);
         setUserCardData((prevSaved) => {
           return prevSaved.filter((card) => card._id !== removeCard._id);
@@ -268,6 +271,7 @@ function App() {
             email,
             _id,
           });
+          location.pathname === "/saved-news" && navigate("/saved-news");
         })
         .catch((err) => {
           console.error(`Authentication Error: ${err.message}`);

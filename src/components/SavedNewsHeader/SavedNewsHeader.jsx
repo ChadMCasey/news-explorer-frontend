@@ -1,12 +1,37 @@
 import "./SavedNewsHeader.css";
 
 const SavedNewsHeader = ({ userCardData }) => {
-  let distinctKeywords = [];
+  let distinctKeywords = {};
+  let sortedKeywords = [];
+  let keywordString = "";
 
-  for (let card of userCardData) {
-    if (!distinctKeywords.includes(card.keyword)) {
-      distinctKeywords.push(card.keyword);
+  userCardData.forEach((card) => {
+    if (distinctKeywords[card.keyword]) {
+      distinctKeywords[card.keyword]++;
+    } else {
+      distinctKeywords[card.keyword] = 1;
     }
+  });
+
+  for (let key in distinctKeywords) {
+    sortedKeywords.push([key, distinctKeywords[key]]);
+  }
+
+  sortedKeywords.sort((a, b) => b[1] - a[1]);
+
+  if (sortedKeywords.length <= 3) {
+    // between 0 and 3 keywords
+    if (sortedKeywords.length === 0) keywordString = `No Keywords`;
+    if (sortedKeywords.length === 1) keywordString = `${sortedKeywords[0][0]}`;
+    if (sortedKeywords.length === 2)
+      keywordString = `${sortedKeywords[0][0]} and ${sortedKeywords[1][0]}`;
+    if (sortedKeywords.length === 3)
+      keywordString = `${sortedKeywords[0][0]}, ${sortedKeywords[1][0]} and ${sortedKeywords[2][0]}`;
+  } else {
+    // more than 3 keyword case
+    keywordString = `${sortedKeywords[0][0]}, ${sortedKeywords[1][0]} and ${
+      sortedKeywords.length - 2
+    } other`;
   }
 
   return (
@@ -16,23 +41,10 @@ const SavedNewsHeader = ({ userCardData }) => {
         <p className="saved-news-header__description">
           Elise, you have {userCardData.length || 0} saved articles
         </p>
-        {distinctKeywords.length > 0 ? (
-          <p className="saved-news-header__keywords">
-            By keywords:{" "}
-            <span className="saved-news-header__keyword">
-              {distinctKeywords.length === 1 && distinctKeywords[0]}
-              {distinctKeywords.length === 2 &&
-                distinctKeywords[0] + " and " + distinctKeywords[1]}
-              {distinctKeywords.length > 2 &&
-                distinctKeywords[0] +
-                  ", " +
-                  distinctKeywords[1] +
-                  ` and ${distinctKeywords.length - 2} other`}
-            </span>
-          </p>
-        ) : (
-          ""
-        )}
+        <p className="saved-news-header__keywords">
+          By keywords:{" "}
+          <span className="saved-news-header__keyword">{keywordString}</span>
+        </p>
       </div>
     </section>
   );

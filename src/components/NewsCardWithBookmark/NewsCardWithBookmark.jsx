@@ -4,9 +4,11 @@ import "./NewsCardWithBookmark.css";
 
 // contexts
 import { IsLoggedInContext } from "../../context/IsLoggedInContext";
+import { ModalStateContext } from "../../context/ModalStateContext";
 
 const NewsCardWithBookmark = ({ card, handleBookmarkInteraction }) => {
   const { isLoggedIn } = useContext(IsLoggedInContext);
+  const { setActiveModal } = useContext(ModalStateContext);
   const [bookmarked, setIsBookmarked] = useState(card.bookmarked);
   const [hovered, setIsHovered] = useState(false);
 
@@ -16,6 +18,8 @@ const NewsCardWithBookmark = ({ card, handleBookmarkInteraction }) => {
       handleBookmarkInteraction(!card.bookmarked, card);
       card.bookmarked = !card.bookmarked;
       setIsBookmarked(!bookmarked);
+    } else {
+      setActiveModal("signup-modal");
     }
   }
 
