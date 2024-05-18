@@ -40,7 +40,6 @@ const newsAPI = new NewsAPI();
 const backendAPI = new BackendAPI();
 
 function App() {
-  // user
   const [userData, setUserData] = useState({
     name: "",
     email: "",
