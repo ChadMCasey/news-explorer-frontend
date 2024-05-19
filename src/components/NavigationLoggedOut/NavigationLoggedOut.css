@@ -1,0 +1,20 @@
+.nav__li .nav__link_type_home {
+  text-align: center;
+  width: 68px;
+  margin-right: 34px;
+}
+
+.nav__li > .nav__link_type_signin {
+  width: 176px;
+  height: 48px;
+}
+
+@media screen and (width <= 920px) {
+  .nav__li .nav__link_type_signin {
+    width: 152px;
+    height: 40px;
+  }
+  .nav__li .nav__link_type_home {
+    margin-right: 19px;
+  }
+}

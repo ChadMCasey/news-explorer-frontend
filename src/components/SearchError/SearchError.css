@@ -1,0 +1,42 @@
+.search-error {
+  text-align: center;
+  max-width: 300px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.search-error__icon {
+  width: 82.5px;
+  height: 82.5px;
+  margin-bottom: 31.5px;
+}
+
+.search-error__heading {
+  margin-top: 0px;
+  margin-bottom: 16px;
+
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 26px;
+  color: #1a1b22;
+}
+
+.search-error__subheading {
+  margin: 0px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #b6bcbf;
+}
+
+@media screen and (width <= 920px) {
+  .search-error {
+    max-width: 200px;
+  }
+  .search-error__heading {
+    font-size: 20px;
+  }
+
+  .search-error__subheading {
+    font-size: 16px;
+  }
+}

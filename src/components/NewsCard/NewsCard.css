@@ -1,0 +1,142 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+
+  border-radius: 16px;
+}
+
+.card__text-content {
+  padding: 20px 24px 24px 24px;
+  border-radius: 0px 0px 16px 16px;
+  height: 304px;
+  box-sizing: border-box;
+  color: #1a1b22;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card__text-content-top {
+  margin-bottom: 16px;
+}
+
+.card__img-container {
+  flex-grow: 1;
+}
+
+.card__img {
+  display: block;
+  border-radius: 16px 16px 0px 0px;
+
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: min(16 / 10.6);
+}
+
+.card-text {
+  margin: 0px;
+}
+
+.card__date {
+  margin-bottom: 12px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+}
+
+.card__title {
+  font-family: "Roboto Slab", sans-serif;
+
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+
+  /* mulitple line ellipse */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__description {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+
+  /* mulitple line ellipse */
+  height: 5lh;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__source {
+  margin-top: 18px;
+  font-family: "Roboto Slab", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #b6bcbf;
+  font-weight: 700;
+
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (width <= 920px) {
+  .card__text-content {
+    box-sizing: border-box;
+    justify-content: start;
+    padding: 16px;
+    height: auto;
+  }
+  .card__text-content-top {
+    margin-bottom: 10px;
+  }
+
+  .card__title {
+    font-size: 22px;
+    line-height: 24px;
+    height: 3lh;
+  }
+
+  .card__description {
+    height: 4lh;
+    -webkit-line-clamp: 4;
+  }
+
+  .card__source {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .card__text-content {
+    height: 244px;
+    justify-content: space-between;
+  }
+  .card__text-content-top {
+    margin-bottom: 12px;
+  }
+  .card__title {
+    -webkit-line-clamp: 2;
+    height: 2lh;
+  }
+  .card__img {
+    aspect-ratio: min(16 / 11);
+  }
+  .card__source {
+    margin-top: 8px;
+  }
+  .card__date {
+    margin-bottom: 10px;
+  }
+}

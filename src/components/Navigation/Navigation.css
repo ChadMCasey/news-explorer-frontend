@@ -1,0 +1,135 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+.nav__li {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0px;
+  padding: 0px 104px;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.nav__link {
+  box-sizing: border-box;
+  height: 80px;
+
+  text-decoration: none;
+  place-content: center;
+
+  color: white;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+}
+
+.nav__link.nav__link_type_home {
+  text-align: center;
+  width: 68px;
+  margin-right: 34px;
+  color: #b6bcbf;
+  position: relative;
+}
+
+.nav__link_type_home.after::after {
+  content: "";
+  height: 3px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background-color: #fff;
+  position: absolute;
+}
+
+.bottom {
+  border-bottom: 5px solid red;
+}
+
+.nav__link_type_logo {
+  font-size: 20px;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+}
+
+.mobile {
+  display: none;
+}
+
+.hamburger {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-content: center;
+  row-gap: 4px;
+}
+
+.hamburger__bar {
+  background-color: #fff;
+  width: 32px;
+  height: 3px;
+}
+
+.hamburger__bar {
+  background-color: #fff;
+  width: 32px;
+  height: 3px;
+}
+
+@media screen and (width <= 920px) {
+  .nav__list {
+    padding: 0px 40px;
+  }
+  .nav__link.nav__link_type_home {
+    margin-right: 18px;
+    width: 60px;
+  }
+  .nav__link {
+    font-size: 16px;
+    height: 66px;
+  }
+  .nav__link_type_logo {
+    font-size: 20px;
+  }
+}
+
+@media screen and (width < 768px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}
+
+@media screen and (width <= 480px) {
+  .nav__link_type_logo {
+    font-size: 16px;
+  }
+  .nav__link {
+    height: 56px;
+  }
+  .nav__list {
+    padding: 0px 16px;
+  }
+  .hamburger__bar {
+    width: 16px;
+    height: 2px;
+  }
+}
