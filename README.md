@@ -22,8 +22,9 @@
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXpwZzFqM2lxODhpOTFwN2xxeHoxaXM4bHV5ZnNkejFnb2Jpa2U5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RNQEdMLA9BDF478vgf/giphy.gif)
 
 ## Link To Live Site & Backend Repository
-[News Explorer](https://newsexplorer.iii.cl/) \
-[Backend Repository](https://github.com/ChadMCasey/news-explorer-backend)
+<a href="https://newsexplorer.iii.cl/" target="_blank">News Explorer</a>
+<a href="https://github.com/ChadMCasey/news-explorer-backend" target="_blank">Backend Repository</a>
+
 
 
 
