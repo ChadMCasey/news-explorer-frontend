@@ -14,5 +14,9 @@
 - Googles NewsAPI
 - Google Cloud
 
+## Project Demonstration
+
+![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXpwZzFqM2lxODhpOTFwN2xxeHoxaXM4bHV5ZnNkejFnb2Jpa2U5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RNQEdMLA9BDF478vgf/giphy.gif)
+
 
 
