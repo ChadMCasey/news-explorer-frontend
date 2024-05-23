@@ -14,6 +14,9 @@
 - Googles NewsAPI
 - Google Cloud
 
+<h3>What Did I Learn?</h3>
+<p>After each project, i always take a moment to reflect on my design decisions within the project and what i learned, generally. One thing that came to my attention during the completion of this project was the nuances of User Experience in web development. For example, displaying messages when a user types in invalid login data, messages when they type in correct data, messages when a server error occurs, messages when login was successful, and how to manage these program states in React effectively. Another thing that i had to consider when working on this project was whether i should reuse a React component for multiple applications within the program. I had come to realize that if you attempt to 'abstract' a component to a point at which it can be used in multiple context, it can often lead to more work then simply creating a new component entirely. The use of higher order components helped me navigate these issues when completing this project, as they provide a nice middleground in which you can extend component functionality without excessive code duplication of lower order components.</p>
+
 ## Project Demonstration
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXpwZzFqM2lxODhpOTFwN2xxeHoxaXM4bHV5ZnNkejFnb2Jpa2U5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RNQEdMLA9BDF478vgf/giphy.gif)
