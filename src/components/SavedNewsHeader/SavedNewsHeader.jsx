@@ -1,6 +1,9 @@
 import "./SavedNewsHeader.css";
+import { useContext } from "react";
+import { UserDataContext } from "../../context/UserDataContext";
 
 const SavedNewsHeader = ({ userCardData }) => {
+  const userData = useContext(UserDataContext);
   let distinctKeywords = {};
   let sortedKeywords = [];
   let keywordString = "";
@@ -39,7 +42,8 @@ const SavedNewsHeader = ({ userCardData }) => {
       <div className="saved-news-header__container">
         <h3 className="saved-news-header__heading">Saved articles</h3>
         <p className="saved-news-header__description">
-          Elise, you have {userCardData.length || 0} saved articles
+          {userData.name.split(" ")[0]}, you have {userCardData.length || 0}{" "}
+          saved articles
         </p>
         <p className="saved-news-header__keywords">
           By keywords:{" "}
