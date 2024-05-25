@@ -1,8 +1,7 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NewsExplorer represents the final project in triple10's full stack web development bootcamp. It is a full stack MERN application that integrates the News API from google.
 
-Currently, two official plugins are available:
+## link to site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://newsexplorer.iii.cl/
